@@ -1,0 +1,40 @@
+Programa: SumaParesProductoImpares
+Autor: Antonio Sard González
+Entorno:
+	i es numérico entero
+	sumaPares es numérico entero
+	productoImpares es numérico entero
+Algoritmo:
+	sumaPares <-- 0
+	productoImpares <-- 1
+	Para i de 2 a 20 con incremento 2 hacer
+		sumaPares <-- sumaPares + i
+	Fin Para
+	Para i de 1 a 19 con incremento 2 hacer 
+		productoImpares <-- productoImpares * i
+	Fin Para
+	Escribir "La suma de los primeros 10 números naturales es ",sumaPares,". El producto de los 10 primeros números impares es ",productoImpares
+Fin Programa
+
+//Programa: SumaParesProductoImpares
+//Autor: Antonio Sard González
+//Entorno:
+//	i es numérico entero
+//	sumaPares es numérico entero
+//	productoImpares es numérico entero
+//	esPar es booleano
+//Algoritmo:
+//	sumaPares <-- 0
+//	productoImpares <-- 1
+//	esPar <-- FALSO
+//	Para i de 1 a 20 hacer
+//		Si esPar entonces
+//			sumaPares <-- sumaPares + i
+//		Sino
+//			productoImpares <-- productoImpares + i
+//		Fin Si
+//		esPar <-- no esPar
+//	Fin para
+//	Escribir "La suma de los primeros 10 números naturales es ",sumaPares,". El producto de los 10 primeros números impares es ",productoImpares
+//Fin Programa
+

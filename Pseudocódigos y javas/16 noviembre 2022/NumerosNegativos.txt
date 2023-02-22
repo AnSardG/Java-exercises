@@ -1,0 +1,23 @@
+Programa: NumerosNegativos
+Autor: Antonio Sard González
+Entorno:
+	num es numérico real
+	hayNegativo es booleano
+	opcion es alfanumérico(1)
+Algoritmo:
+	hayNegativo <-- FALSO
+	Repetir
+		Escribir "Introduce uno o varios números: " 
+		Leer num
+		hayNegativo <-- hayNegativo o num < 0
+		Repetir
+			Escribir "Si quiere seguir introduciendo números pulse 's', si desea terminar pulse 'n'."
+			Leer opcion
+		Hasta opcion = "n" o opcion = "N" o opcion = "s" o opcion = "S"
+	Hasta opcion = "n" o opcion = "N"
+	Si hayNegativo entonces
+		Escribir "Se han introducido uno o varios números negativos."
+	Sino
+		Escribir "No se ha introducido ningún número negativo.
+	Fin Si
+Fin Programa

@@ -1,0 +1,17 @@
+Programa: IntervaloNumero
+Autor: Antonio Sard González
+Entorno:
+	numero es numérico real
+Algoritmo:
+	Escribir "Inserte un número para saber su intervalo: "
+	Leer numero
+	Si numero < 1 entonces
+		Escribir "El ",numero," es menor que 1."
+	Sino
+		Si numero <= 5 entonces
+			Escribir "El ",numero," está entre 1 y 5."
+		Sino
+			Escribir "El ",numero," es mayor que 5."
+		Fin Si
+	Fin Si
+Fin Programa

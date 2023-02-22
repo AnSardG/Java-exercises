@@ -1,0 +1,19 @@
+Programa: EurosADolaresYPesetas
+Autor: Antonio Sard González
+Entorno:
+	cantEuro es numérico real
+	cantDolar es numérico real
+	cantPeseta es numérico real
+	CONST VALORDOLAR es numérico real <-- 0.99
+	CONST VALORPESETA es numérico real <-- 166.386
+Algoritmo:
+	Escribir "Introduzca una cantidad en euros: "
+	Leer cantEuro
+	cantDolar <-- cantEuro * VALORDOLAR
+	cantPeseta <-- cantEuro * VALORDOLAR
+		Si cantEuro = 1 entonces
+			Escribir cantEuro,"€ es ",cantDolar,"$ y ",cantPeseta," Ptas."
+		Sino
+			Escribir cantEuro,"€ son ",cantDolar,"$ y ",cantPeseta," Ptas."
+		Fin Si
+Fin Programa

@@ -1,0 +1,25 @@
+Programa: DivisoresDeNumero
+Autor: Antonio Sard González
+Entorno:
+	num es numérico entero
+	divisor es numérico entero
+Algoritmo:
+	Repetir
+		Escribir "Introduzca un número (distinto de 0) del que quiera saber todos sus divisores: "
+		Leer num
+	Hasta num <> 0
+	Escribir "Los múltiplos de ",num," son: "
+	Si num > 0 entonces
+		Para divisor de num a 1 hacer
+			Si num % divisor = 0 entonces
+				Escribir divisor,", -",divisor
+			Fin Si
+		Fin Para
+	Sino
+		Para divisor de num a -1 hacer
+			Si num % divisor = 0 entonces
+				Escribir divisor,", ",-divisor
+			Fin Si
+		Fin Para
+	Fin Si
+Fin Programa

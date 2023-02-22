@@ -1,0 +1,14 @@
+Programa: IntroducirLetra
+Autor: Antonio Sard González
+Entorno:
+	letra es alfanumérico(1)
+Algoritmo:
+	Repetir
+		Escribir "Introduzca una 'n' o una 's': "	
+		Leer letra
+	Hasta letra = "n" o letra = "s" o letra = "N" o letra = "S"
+	Si letra = "S" o letra = "s" entonces
+		Escribir "El programa se acabará al pulsar intro."
+		Leer letra
+	Fin Si
+Fin Programa

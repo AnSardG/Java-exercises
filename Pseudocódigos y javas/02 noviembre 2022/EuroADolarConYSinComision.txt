@@ -1,0 +1,19 @@
+Programa: EuroADolarConYSinComision
+Autor: Antonio Sard González
+Entorno:
+	cantEuro es numérico real
+	cantDolar es numérico real
+	cantDolarComision es numérico real
+	CONST VALORDOLAR es numérico real <-- 0.99
+	CONST PORCENCOMISION es numérico real <-- 3
+Algoritmo:
+	Escribir "Introduzca una cantidad en euros a cambiar por dólares: "
+	Leer cantEuro
+	cantDolar <-- cantEuro*VALORDOLAR
+	cantDolarComision <-- (cantEuro-cantEuro*PORCENCOMISION/100)*VALORDOLAR
+		Si cantEuro=1 entonces
+			Escribir cantEuro,"€ equivale a ",cantDolar,"$ que corresponden a ",cantDolarComision,"$ tras aplicar un ",PORCENCOMISION,"% de comisión."
+		Sino
+			Escribir cantEuro,"€ equivalen a ",cantDolar,"$ que corresponden a ",cantDolarComision,"$ tras aplicar un ",PORCENCOMISION,"% de comisión."
+		Fin Si	
+Fin Programa

@@ -1,0 +1,20 @@
+Programa: ComparacionNumeros
+Autor: Antonio Sard González
+Entorno:
+	num1 es numérico real
+	num2 es numérico real
+Algoritmo:
+	Escribir "Introduce el primer número a comparar: "
+	Leer num1
+	Escribir "Introduce el segundo número a comparar: "
+	Leer num2
+	Si num1 > num2 entonces
+		Escribir "El ",num1," es mayor que el ",num2,"."
+	Sino
+		Si num2 > num1 entonces
+			Escribir "El ",num2," es mayor que el ",num1,"."
+		Sino
+			Escribir "El ",num1," y el ",num2," son iguales entre sí."
+		Fin Si
+	Fin Si
+Fin Programa

@@ -1,0 +1,24 @@
+Programa: AreaTriángulo
+Autor: Antonio Sard González
+Entorno:
+	base es numérico real
+	altura es numérico real
+	area es numérico real
+Algoritmo:
+	Escribir "El programa da por hecho que las unidades a calcular son de magnitudes equivalentes entre sí (centímetros, metros, kilómetros...). 
+	Asegúrese de que las cantidades introducidas sean de unidades similares. Introduzca la base del triángulo (debe ser cualquier número positivo 
+	mayor que 0): "
+	Leer base
+		Mientras base <= 0 hacer
+			Escribir "La base no puede ser un número negativo ni equivalente a 0. Vuelva a introducir la base: "
+			Leer base
+		Fin Mientras
+	Escribir "Introduzca la altura del triángulo (debe ser cualquier número positivo mayor que 0): "
+	Leer altura
+		Mientras altura <= 0 hacer
+			Escribir "La altura no puede ser un número negativo ni equivalente a 0. Vuelva a introducir la altura: "
+			Leer altura
+		Fin Mientras
+	area <-- base * altura / 2
+	Escribir "El área es ",area,"."
+Fin Programa

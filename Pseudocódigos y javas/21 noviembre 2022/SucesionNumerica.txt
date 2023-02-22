@@ -1,0 +1,12 @@
+Programa: SucesionNumerica
+Autor: Antonio Sard González
+Entorno:
+	i es numérico entero
+	sucesion es numérico real
+Algoritmo:
+	Escribir "Los 10 primeros términos para la sucesión a0 hasta a9 son: "
+	Para i de 0 a 9 hacer
+		sucesion <-- (i + 1) / (i + 2)
+		Escribir sucesion
+	Fin Para
+Fin Programa

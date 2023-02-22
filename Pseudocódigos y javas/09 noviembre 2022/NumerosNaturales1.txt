@@ -1,0 +1,11 @@
+Programa: NumerosNaturales1
+Autor: Antonio Sard González
+Entorno:
+	i es numérico entero
+Algoritmo:
+	i <-- 1
+	Mientras i <= 10 hacer
+		Escribir i
+		i <-- i + 1
+	Fin Mientras
+Fin Programa

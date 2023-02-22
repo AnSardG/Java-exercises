@@ -1,0 +1,16 @@
+Programa: TablaMultiplicar
+Autor: Antonio Sard González
+Entorno:
+	numero es numérico entero
+	resultado es numérico entero
+	i es numérico entero
+Algoritmo:
+	Repetir
+		Escribir "Introduzca un número de 0 a 10 a multiplicar: "
+		Leer numero
+	Hasta numero >= 0 y numero <= 10
+	Para i de 0 a 10 hacer
+		resultado <-- numero * i
+		Escribir numero," x ",i," = ",resultado
+	Fin Para
+Fin Programa

@@ -1,0 +1,27 @@
+Programa: EcuaciónSegundoGrado
+Autor: Antonio Sard González
+Entorno:
+	numA es numérico real
+	numB es numérico real
+	numC es numérico real
+	discriminante es numérico real
+	resultadoSuma es numérico real
+	resultadoResta es numérico real
+Algoritmo:
+	Repetir
+		Escribir "Introduce un valor para la a (no puede ser 0): "
+		Leer numA
+	Hasta numA distinto 0 hacer
+	Escribir "Introduce un valor para la b: "
+	Leer numB
+	Escribir "Introduce un valor para la c: "
+	Leer numC
+	discriminante <-- (numB ^ 2 - 4 * numA * numC) ^ 0.5
+	Si discriminante >= 0 entonces
+		resultadoSuma <-- (- numB + discriminante) / (2 * numA)
+		resultadoResta <-- (- numB - discriminante) / (2 * numA)
+		Escribir "Los dos posibles resultados para los valores de la ecuación introducidos son: ",resultadoSuma," y ",resultadoResta,"."
+	Sino
+		Escribir "No existen soluciones reales para los valores de la ecuación introducidos."
+	Fin Si
+Fin Programa

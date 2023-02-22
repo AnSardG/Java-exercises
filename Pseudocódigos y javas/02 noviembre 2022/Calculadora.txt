@@ -1,0 +1,37 @@
+Programa: Calculadora
+Autor: Antonio Sard González
+Entorno:
+	num1 es numérico real
+	num2 es numérico real
+	suma es numérico real
+	resta es numérico real
+	multiplicacion es numérico real
+	divisionReal es numérico real
+	divisionEntera es numérico entero
+	resto es numérico entero
+Algoritmo:		
+	Escribir "Introduzca el primer número: "
+	Leer num1
+	Escribir "Introduzca el segundo número: "
+	Leer num2
+	suma <-- num1 + num2
+	resta <-- num1 - num2
+	multiplicacion <-- num1 * num2
+	Escribir "Suma: ",suma
+	Escribir "Resta: ",resta
+	Escribir "Multiplicación: ",multiplicacion
+	Si num2 = 0 entonces
+		Escribir "La división no existe."
+	Sino
+		divisionReal <-- num1 / num2
+		Escribir "La división real es: ",divisionReal
+		Si num1/1 = num1 div 1 y num2/1 = num2 div 1 entonces
+			divisionEntera <-- num1 div num2
+			resto <-- num1 mod num2
+			Escribir "La división entera es: ",divisionEntera
+			Escribir "El resto de la división es: ",resto
+		Sino
+			Escribir "No existe división entera ni resto."
+		Fin Si
+	Fin Si
+Fin Programa

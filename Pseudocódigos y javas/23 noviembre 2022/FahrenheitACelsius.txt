@@ -1,0 +1,12 @@
+Programa: FahrenheitACelsius
+Autor: Antonio Sard González
+Entorno:
+	gradosF es numérico real
+	gradosC es numérico real
+Algoritmo:
+	Escribir "Introduzca la cantidad de grados Fahrenheit que desee convertir a grados Celsius: "
+	Leer gradosF
+	gradosC <-- 5/9*(gradosF-32)
+	Escribir gradosF," ºF equivalen a ",gradosC," ºC."
+Fin Programa
+	

@@ -1,0 +1,17 @@
+Programa: MediaAritmetica
+Autor: Antonio Sard González
+Entorno:
+	num es numérico real
+	sumaNum es numérico real
+	i es numérico entero
+	mediaAritmetica es numérico real
+Algoritmo:
+	mediaAritmetica <-- 0
+	Para i de 1 a 5 hacer
+		Escribir "Inserte número ",i,"º: "
+		Leer num
+		mediaAritmetica <-- mediaAritmetica + num
+	Fin Para
+	mediaAritmetica <-- mediaAritmetica / 5
+	Escribir "La media aritmética de los números introducidos es: ",mediaAritmetica
+Fin Programa

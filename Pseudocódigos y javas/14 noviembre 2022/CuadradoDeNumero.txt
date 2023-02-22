@@ -1,0 +1,15 @@
+Programa: CuadradoDeNumero
+Autor: Antonio Sard González
+Entorno:
+	numero es numérico real
+	cuadradoNumero es numérico real
+Algoritmo:
+	Repetir
+		Escribir "Introduzca un número positivo distinto a 0 para calcular el cuadrado de este: "
+		Leer numero
+	Hasta numero <> 0
+	Si numero > 0 entonces
+		cuadradoNumero <-- numero ^ 2
+		Escribir "El cuadrado de ",numero," es ",cuadradoNumero
+	Fin Si
+Fin Programa

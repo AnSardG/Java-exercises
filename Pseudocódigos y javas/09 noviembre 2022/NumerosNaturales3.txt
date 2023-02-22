@@ -1,0 +1,9 @@
+Programa: NumerosNaturales3
+Autor: Antonio Sard González
+Entorno:
+	i es numérico entero
+Algoritmo:
+	Para i de 1 a 10 hacer
+		Escribir i
+	Fin Para
+Fin Programa

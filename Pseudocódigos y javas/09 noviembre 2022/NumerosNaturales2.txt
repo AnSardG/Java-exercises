@@ -1,0 +1,11 @@
+Programa: NumerosNaturales2
+Autor: Antonio Sard González
+Entorno:
+	i es numérico entero
+Algoritmo:
+	i <-- 1
+	Repetir
+		Escribir i
+		i <-- i + 1
+	Hasta i > 10
+Fin Programa

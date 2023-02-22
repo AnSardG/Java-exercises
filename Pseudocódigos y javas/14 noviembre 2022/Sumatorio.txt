@@ -1,0 +1,16 @@
+Programa: Sumatorio
+Autor: Antonio Sard González
+Entorno:
+	num es numérico real
+	acumulador es numérico real
+Algoritmo:
+	acumulador <-- 0
+	Escribir "Introduzca los números que quiera sumar uno a uno; si quiere terminar el programa introduzca un 0: "
+	Leer num
+	Mientras num <> 0 hacer
+		acumulador <-- acumulador + num
+		Escribir "Introduzca otro número: "
+		Leer num
+	Fin Mientras
+	Escribir "La suma de todos los números es ",acumulador
+Fin Programa
