@@ -1,6 +1,7 @@
 public class Utilidades {
     public static byte cifras(int num){
     //Entorno:
+		boolean loco;
         byte cif;
         int auxNum;
     //Algoritmo:
