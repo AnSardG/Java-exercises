@@ -1,44 +1,35 @@
-/*
-Programa: Ej05
-Autor: Antonio Sard González
-Entorno:
-	dias, meses, años es numérico entero
-Algoritmo:
-	Repetir
-		Escribir "Introduzca su edad en años: "
-		Leer años
-		Si años>150
-			Escribir "Debe introducir la cantidad de años que tiene, no el año en el que nació."
-		Fin Si
-	Hasta años>=0 y años<=150
-	Repetir
-		Escribir "Introduzca los meses: "
-		Leer meses
-	Hasta meses >= 0 y meses <= 12
-	dias <-- años*360 + meses*30
-	Escribir "Su edad equivale a ",dias," días."
-Fin Programa
-*/
 //Programa: Ej05
-//Autor: Antonio Sard González
-public class Ej05{
-	public static void main(String[] args){
-	//Entorno:
-		short meses, años;
-		int dias;
-	//Algoritmo:
-		do{
-			System.out.print("Introduzca su edad en años: ");
-			años=Leer.datoShort();
-			if(años>150){
-				System.out.print("Debe introducir la cantidad de años que tiene, no el año en el que nació.");
-			}//Fin Si
-		}while(años<0 || años>150);
-		do{
-			System.out.print("Introduzca los meses: ");
-			meses=Leer.datoShort();
-		}while(meses < 0 || meses > 12);
-		dias=años*360 + meses*30;
-		System.out.print("Su edad equivale a "+dias+" días.");
-	}//Fin Programa
+//Autor: Antonio Sard GonzÃ¡lez
+public class Ej05 {
+    public static byte leeByte(){
+        //Entorno:
+        short num;
+        //Algoritmo:
+        num=Leer.datoShort();
+        while(num<Byte.MIN_VALUE || num > Byte.MAX_VALUE){
+            System.out.print("Dato incorrecto. Teclee otro dato: ");
+            num=Leer.datoShort();
+        }//Fin Mientras
+        return (byte) num;
+    }
+    public static void main(String[] args) {
+        //Entorno:
+        byte meses, anios;
+        int dias;
+        //Algoritmo:
+        do {
+            System.out.print("Introduzca su edad en aï¿½os: ");
+            anios = Ej05.leeByte();
+            if (anios > 150) {
+                System.out.print("Debe introducir la cantidad de aÃ±os que tiene,"
+                        + " no el aÃ±o en el que naciÃ³.");
+            }//Fin Si
+        } while (anios < 0 || anios > 150);
+        do {
+            System.out.print("Introduzca los meses: ");
+            meses = Ej05.leeByte();
+        } while (meses < 0 || meses > 12);
+        dias = anios * 360 + meses * 30;
+        System.out.print("Su edad equivale a " + dias + " dÃ­as.");
+    }//Fin Programa
 }
