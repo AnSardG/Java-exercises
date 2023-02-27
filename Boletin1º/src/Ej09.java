@@ -4,12 +4,12 @@ public class Ej09 {
 
     public static void main(String[] args) {
         //Entorno:
-        int sum, num;
+        int sum, i;
         //Algoritmo:
         sum = 2;
-        for (num = 4; num <= 1000; num = num + 2) {
-            sum = sum + num;
+        for (i = 2; i <= 500; i++) {
+            sum = sum + i*2;
         }//Fin Para
-        System.out.print("El resultado de la suma de todos los pares entre 2 y 1000 es: " + sum);
+        System.out.println("El resultado de la suma de todos los pares entre 2 y 1000 es: " + sum);
     }//Fin Programa
 }

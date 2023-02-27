@@ -5,18 +5,6 @@ import java.util.GregorianCalendar;
 //Autor: Antonio Sard González
 public class Ej05 {
 
-    public static byte leeByte() {
-        //Entorno:
-        short num;
-        //Algoritmo:
-        num = Leer.datoShort();
-        while (num < Byte.MIN_VALUE || num > Byte.MAX_VALUE) {
-            System.out.print("Dato incorrecto. Teclee otro dato: ");
-            num = Leer.datoShort();
-        }//Fin Mientras
-        return (byte) num;
-    }//Fin Función
-
     public static void main(String[] args) {
         //Entorno:
         byte meses;
@@ -39,7 +27,7 @@ public class Ej05 {
             auxAnios = Short.valueOf(anios).shortValue();
             do {
                 System.out.print("Introduzca los meses: ");
-                meses = Ej05.leeByte();
+                meses = Utilidades.leeByte();
             } while (meses < 0 || meses > 12);
             dias = auxAnios * 360 + meses * 30;
         }//Fin Si    

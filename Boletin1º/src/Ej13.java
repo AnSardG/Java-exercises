@@ -2,11 +2,9 @@
 //Autor: Antonio Sard González
 public class Ej13 {
 
-    public static void main(String[] args) {
+    public static String opcion() {
         //Entorno:
-        final float PI = 3.1416F;
-        float radio, longitud, superficie, volumen, area;
-        char opcion;
+        String opt;
         //Algoritmo:
         System.out.println("A. Longitud de la circunferencia.");
         System.out.println("B. Superficie de la circunferencia.");
@@ -15,41 +13,50 @@ public class Ej13 {
         System.out.println("E. Salir");
         do {
             System.out.print("Elija opcion: ");
-            opcion = Leer.datoChar();
-        } while (opcion != 'a' && opcion != 'b' && opcion != 'c' && opcion != 'd'
-                && opcion != 'e' && opcion != 'A' && opcion != 'B' && opcion != 'C' 
-                && opcion != 'D' && opcion != 'E');
-        if (opcion != 'E' && opcion != 'e') {
+            opt = Leer.dato();
+        } while (!opt.trim().toLowerCase().matches("[abcde]") || opt.isEmpty());
+        return opt.trim().toLowerCase();
+    }//Fin Funcion
+
+    public static void main(String[] args) {
+        //Entorno:
+        final float PI = 3.1416F;
+        float radio, longitud, superficie, volumen, area;
+        String opcion;
+        //Algoritmo:
+
+        do {
             do {
                 System.out.print("Introduzca el radio de la circunferencia "
                         + "(debe ser distinto de 0): ");
                 radio = Leer.datoFloat();
             } while (radio <= 0);
-            switch (opcion) {
-                case 'A':
-                case 'a':
+            opcion = Ej13.opcion();
+            if (!"e".equals(opcion)) {
+                if ("a".equals(opcion)) {
                     longitud = PI * radio * 2;
-                    System.out.print("La longitud de la circunferencia es: " 
+                    System.out.println("La longitud de la circunferencia es: "
                             + longitud);
-                    break;
-                case 'B':
-                case 'b':
-                    superficie = PI * (float) Math.pow(radio, 2);
-                    System.out.print("La superficie de la circunferencia es: " 
-                            + superficie);
-                    break;
-                case 'C':
-                case 'c':
-                    volumen = (PI * (float) Math.pow(radio, 3) * 4) / 3;
-                    System.out.print("El volumen de la circunferencia es: " 
-                            + volumen);
-                    break;
-                case 'D':
-                case 'd':
-                    area = PI * (float) Math.pow(radio, 2) * 4;
-                    System.out.print("El área de la circunferencia es: " + area);
-                    break;
-            }//Fin Seg�n Sea
-        }//Fin Si
+                } else {
+                    if ("b".equals(opcion)) {
+                        superficie = PI * (float) Math.pow(radio, 2);
+                        System.out.println("La superficie de la circunferencia es: "
+                                + superficie);
+                    } else {
+                        if ("c".equals(opcion)) {
+                            volumen = (PI * (float) Math.pow(radio, 3) * 4) / 3;
+                            System.out.println("El volumen de la circunferencia es: "
+                                    + volumen);
+                        } else {
+                            if ("d".equals(opcion)) {
+                                area = PI * (float) Math.pow(radio, 2) * 4;
+                                System.out.print("El área de la circunferencia es: "
+                                        + area);
+                            }//Fin Si
+                        }//Fin Si
+                    }//Fin Si
+                }//Fin Si
+            }//Fin Si
+        } while (!"e".equals(opcion) && Utilidades.continuar());
     }//Fin Programa
 }

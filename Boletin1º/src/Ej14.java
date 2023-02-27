@@ -4,30 +4,25 @@ public class Ej14 {
 
     public static void main(String[] args) {
         //Entorno:
-        int num, auxNum;
-        short numBase10, posicion;
-        boolean esBinario;
+        long auxBinario;
+        String numBinario;
+        int numDecimal;
+        byte posicion;
         //Algoritmo:
         do {
-            esBinario = true;
             System.out.print("Introduzca un número binario: ");
-            num = Leer.datoInt();
-            auxNum = num;
-            do {
-                if (auxNum % 10 > 1) {
-                    esBinario = false;
-                }//Fin Si
-                auxNum = (int) (auxNum / 10);
-            } while (auxNum != 0);
-        } while (!esBinario);
-        auxNum = num;
-        numBase10 = 0;
+            numBinario = Leer.dato();
+        } while (numBinario.isEmpty() || numBinario.length() > String
+                .valueOf(Long.MAX_VALUE).length() || numBinario.replaceAll("[01]", "")
+                .matches("[23456789]+"));
+        auxBinario = Long.valueOf(numBinario);
+        numDecimal = 0;
         posicion = 0;
-        while (auxNum > 0) {
-            numBase10 = (short) (numBase10 + (auxNum % 10 * Math.pow(2, posicion)));
-            auxNum = (int) (auxNum / 10);
+        while (auxBinario > 0) {
+            numDecimal += auxBinario % 10 * Math.pow(2, posicion);
+            auxBinario = auxBinario / 10;
             posicion++;
         }//Fin Mientras
-        System.out.print("El número en decimal es: " + numBase10);
+        System.out.println("El número en decimal es: " + numDecimal);
     }//Fin Programa
 }
