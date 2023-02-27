@@ -15,7 +15,7 @@ public class Ej05 {
             num = Leer.datoShort();
         }//Fin Mientras
         return (byte) num;
-    }
+    }//Fin Función
 
     public static void main(String[] args) {
         //Entorno:
