@@ -1,3 +1,8 @@
+# Versions
+
+![java](https://img.shields.io/badge/JAVA-SE%207u25-red)
+![netbeans](https://img.shields.io/badge/NetBeans-7.3.1-blue)
+
 # Java-exercises
 
 Theses exercises are a series of Java related tasks intended to help learn programming from the beginning, I will be submitting all the tasks I've got to do
