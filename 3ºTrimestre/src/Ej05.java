@@ -13,7 +13,7 @@ public class Ej05 {
         numero=Leer.datoInt();
         numeroMax=numero;
         posMax="1, ";
-        for(i=2;i<=5;i++){
+        for(i=2;i<=50;i++){
             System.out.print("Introduzca el número "+i+": ");
             numero=Leer.datoInt();
             if(numero==numeroMax){
