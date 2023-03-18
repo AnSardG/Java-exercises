@@ -1,5 +1,7 @@
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  *
@@ -7,16 +9,16 @@ import java.util.Scanner;
  */
 public class Ej658 {
 
-    public static void main(String[] args) {
-        Scanner myObj;
-        String bloques;
+    public static void main(String[] args) throws IOException {
+        BufferedReader teclado;
+        String linea;
         short disposicion, niveles; 
         int numBloques, cantBloques;
         
-        myObj = new Scanner(System.in);
+        teclado = new BufferedReader(new InputStreamReader(System.in));
         do{
-            bloques = myObj.nextLine();
-            numBloques = Integer.valueOf(bloques);
+            linea = teclado.readLine();
+            numBloques = Integer.valueOf(linea);
             if(numBloques > 0){
                 disposicion = 1;
                 niveles = 1;
@@ -28,6 +30,6 @@ public class Ej658 {
                 }
                 System.out.println(niveles);
             }
-        }while(!"0".equals(bloques));
+        }while(!"0".equals(linea));
     }
 }
