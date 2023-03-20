@@ -26,11 +26,13 @@ public class Ej660 {
                     linea = linea.replaceAll(linea.substring(0, 2), " ");
                     pictogramas++;
                 } else {
-                    if (linea.length() > 4 && linea.substring(0, 4).matches("^[^aeiou\\s][aeiou][^aeiou\\s][^aeiou\\s]$")) {
+                    if (linea.length() > 4 && linea.substring(0, 4)
+                            .matches("^[^aeiou\\s][aeiou][^aeiou\\s][^aeiou\\s]$")) {
                         silaba = linea.substring(0, 3);
                         linea = linea.replaceAll(silaba, "");
                         pictogramas++;
-                    } else if (linea.length() > 2 && linea.substring(0, 2).matches("^[^aeiou][aeiou]$")) {
+                    } else if (linea.length() > 2 && linea.substring(0, 2)
+                            .matches("^[^aeiou][aeiou]$")) {
                         silaba = linea.substring(0, 2);
                         linea = linea.replaceAll(silaba, "");
                         pictogramas++;

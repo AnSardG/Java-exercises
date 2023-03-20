@@ -19,8 +19,8 @@ public class MatrizEj2 {
                     nota = Leer.datoFloat();
                 } while (nota < 0 || nota > 10);
                 notaTotal += nota;
-            }
+            }//Fin Para
             System.out.println("\tLa media es: " + notaTotal / (asignatura - 1));
-        }
+        }//Fin Programa
     }
 }
