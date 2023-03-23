@@ -7,24 +7,25 @@ public class MatrizEj3 {
 
     public static void main(String[] args) {
         //Entorno:
-        float[] alumno;
+        final byte ASIGNATURAS = 4;
+        float[] notaTotal;
         float nota;
-        byte asignatura, i;
+        byte asignatura, alu;
         //Algoritmo:
-        alumno = new float[10];
-        for (i = 0; i < alumno.length; i++) {
-            System.out.println("Introduzca las notas del alumno " + (i + 1) + ". ");
-            for (asignatura = 1; asignatura <= 4; asignatura++) {
+        notaTotal = new float[10];
+        for (alu = 0; alu < notaTotal.length; alu++) {
+            System.out.println("Introduzca las notas del alumno " + (alu + 1) + ". ");
+            for (asignatura = 1; asignatura <= ASIGNATURAS; asignatura++) {
                 do {
                     System.out.print("\tNota " + asignatura + ": ");
                     nota = Leer.datoFloat();
                 } while (nota < 0 || nota > 10);
-                alumno[i] += nota;
+                notaTotal[alu] += nota;
             }//Fin Para
-            alumno[i] /= asignatura - 1;
+            notaTotal[alu] /= ASIGNATURAS;
         }//Fin Para
-        for (i = 0; i < alumno.length; i++){
-            System.out.println("Nota media alumno "+(i+1)+": "+alumno[i]);
+        for (alu = 0; alu < notaTotal.length; alu++){
+            System.out.println("Nota media alumno "+(alu+1)+": "+notaTotal[alu]);
         }//Fin Para
     }//Fin Programa
 }

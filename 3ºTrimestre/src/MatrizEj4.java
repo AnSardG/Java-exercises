@@ -9,27 +9,26 @@ public class MatrizEj4 {
         //Entorno:
         float[][] alumno;
         float media;
-        byte asignatura, col;
+        byte asignatura, alu;
         String linea;
         //Algoritmo:
         alumno = new float[4][10];
-        for (col = 0; col < alumno[0].length; col++) {
-            System.out.println("Introduzca las notas del alumno " + (col + 1) + ". ");
+        for (alu = 0; alu < alumno[0].length; alu++) {
+            System.out.println("Introduzca las notas del alumno " + (alu + 1) + ". ");
             for (asignatura = 0; asignatura < alumno.length; asignatura++) {
                 do {
                     System.out.print("\tNota " + (asignatura + 1) + ": ");
-                    alumno[asignatura][col] = Leer.datoFloat();
-                } while (alumno[asignatura][col] < 0 || alumno[asignatura][col] > 10);
+                    alumno[asignatura][alu] = Leer.datoFloat();
+                } while (alumno[asignatura][alu] < 0 || alumno[asignatura][alu] > 10);
             }//Fin Para
         }//Fin Para
-        for (col = 0; col < alumno[0].length; col++) {
-            linea = "Nota media del alumno " + (col + 1) + ", con las notas ";
-            asignatura = 0;
-            linea += alumno[asignatura][col];
-            media = alumno[asignatura][col];
+        for (alu = 0; alu < alumno[0].length; alu++) {
+            linea = "Nota media del alumno " + (alu + 1) + ", con las notas "
+                    +alumno[0][alu];
+            media = alumno[0][alu];
             for (asignatura = 1; asignatura < alumno.length; asignatura++) {
-                linea += ", " + alumno[asignatura][col];
-                media += alumno[asignatura][col];
+                linea += ", " + alumno[asignatura][alu];
+                media += alumno[asignatura][alu];
             }//Fin Para
             media /= alumno.length;
             linea += " es: " + media + ".";
