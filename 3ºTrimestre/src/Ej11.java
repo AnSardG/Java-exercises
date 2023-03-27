@@ -36,7 +36,7 @@ public class Ej11 {
         for (i = 0; i <= total; i++) {
             linea += v[i] + "\t";
         }//Fin Para
-        System.out.println(linea.trim());
+        System.out.println(linea);
     }
 
     public static int[] desplazaTabla(int[] v, int num, byte pos, byte i) {
