@@ -49,7 +49,7 @@ public class Ej2 {
         i = 0;
         while (i < tabla.length - 1 && tabla[i] != 0) {
             i++;
-        }
+        }//Fin Mientras
         tablaLlena = tabla[i] != 0;
         if (!tablaLlena) {
             switch (opcion) {
@@ -58,18 +58,18 @@ public class Ej2 {
                     while (i != 0) {
                         if (tabla[i - 1] != 0) {
                             tabla[i] = tabla[i - 1];
-                        }
+                        }//Fin Si
                         i--;
                     }//Fin Mientras
                     tabla[i] = elemento;
                     break;
 
                 case 4:
-                    i = (byte) (tabla.length - 1);
-                    while (i == 0) {
-                        i--;
+                    i = 0;
+                    while (i < tabla.length - 1 && tabla[i] != 0) {
+                        i++;
                     }//Fin Mientras
-                    tabla[i + 1] = elemento;
+                    tabla[i] = elemento;
                     break;
 
                 case 6:
@@ -80,18 +80,17 @@ public class Ej2 {
                     posicion--;
                     if (tabla[posicion] != 0) {
                         i = posicion;
-
                         while (i < tabla.length - 1 && tabla[i] != 0) {
                             i++;
-                        }
+                        }//Fin Mientras
                         if (i == 9) {
                             while (i > 0 && tabla[i] != 0) {
                                 i--;
-                            }
+                            }//Fin Mientras
                             while (i < posicion) {
                                 tabla[i] = tabla[i + 1];
                                 i++;
-                            }
+                            }//Fin Mientras
                         }//Fin Si
                         while (i > posicion) {
                             tabla[i] = tabla[i - 1];
@@ -106,6 +105,41 @@ public class Ej2 {
         }//Fin Si
     }//Fin Procedimiento
 
+    public static void borraElemento(int[] tabla, byte opcion){
+        //Entorno:
+        byte i, posicion;
+        boolean tablaVacia;
+        //Algoritmo:
+        i = 0;
+        while (i < tabla.length - 1 && tabla[i] == 0) {
+            i++;
+        }//Fin Mientras
+        tablaVacia = i == tabla.length - 1;
+        if(!tablaVacia){
+            switch(opcion){
+                case 3:
+                    for(i = 0; i<tabla.length - 1;i++){
+                        tabla[i] = tabla[i + 1];
+                    }//Fin Para
+                    break;
+
+                case 5:
+                    posicion = (byte)(tabla.length - 1);
+                    while(tabla[posicion] == 0){
+                        posicion--;
+                    }//Fin Mientras
+                    
+                    break;
+                    
+                case 7:
+                    
+                    break;
+            }//Fin Según Sea
+        } else {
+            System.out.println("Imposible borar dato, tabla vacía");
+        }//Fin Si
+    }//Fin Procedimiento
+    
     public static void main(String[] args) {
         //Entorno:
         int[] tabla;
@@ -124,9 +158,8 @@ public class Ej2 {
                         elemento = Leer.datoInt();
                     } while (elemento < 1);
                     Ej2.insertaElemento(tabla, elemento, opcion);
-                } else {
-                    if (opcion != 8) {
-                    }//Fin Si
+                } else if (opcion != 8){
+                    Ej2.borraElemento(tabla, opcion);
                 }//Fin Si
             }//Fin Si
             opcion = Ej2.muestraMenu();
