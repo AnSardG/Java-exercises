@@ -5,7 +5,7 @@
  */
 public class Chuletas {
     
-    public static int busquedaDicotomica(int[] vector, int num) {
+        public static int busquedaDicotomica(int[] vector, int num) {
         int principio, fin, mitad;
 
         principio = 0;
@@ -27,11 +27,11 @@ public class Chuletas {
         return mitad;
     }
 
-    public static void ordenacionBurbuja(int[] vector, int num, int pos) {
-        int fin;
+    public static void ordenacionBurbuja(int[] vector) {
+        int fin, num, pos;
         boolean desordenado;
 
-        fin = vector.length;
+        fin = vector.length - 1;
         do {
             desordenado = false;
             for (pos = 0; pos < fin; pos++) {
@@ -46,8 +46,8 @@ public class Chuletas {
         } while (desordenado);
     }
 
-    public static void ordenacionIntercambio(int[] vector, int num, int posicion) {
-        int i, lugar;
+    public static void ordenacionIntercambio(int[] vector) {
+        int i, lugar, num, posicion;
 
         for (i = 0; i < vector.length; i++) {
             num = vector[i];
@@ -63,15 +63,15 @@ public class Chuletas {
         }
     }
 
-    public static void introduceOrdenado(int[] vector, int num, int lugarActual, int fin) {
+    public static void introduceOrdenado(int[] vector, int num, int lugarActual) {
         int posicion;
 
         posicion = 0;
-        while (posicion < fin && num >= vector[posicion]) {
+        while (posicion < lugarActual && num >= vector[posicion]) {
             posicion++;
         }
-        for (fin = fin; fin > posicion; fin--) {
-            vector[fin] = vector[fin - 1];
+        for (lugarActual = lugarActual; lugarActual > posicion; lugarActual--) {
+            vector[lugarActual] = vector[lugarActual - 1];
         }
         vector[posicion] = num;
     }
@@ -83,9 +83,9 @@ public class Chuletas {
         total = vector.length;
         linea = "";
         for (i = 0; i < total; i++) {
-            linea += vector[i] + "\t";
+            linea += vector[i] + " ";
         }//Fin Para
-        System.out.println(linea);
+        System.out.println(linea.substring(0, linea.length()-1));
     }
     
 }
