@@ -90,11 +90,11 @@ public class CuentaCorriente extends Cuenta{
         if (date.get(GregorianCalendar.DAY_OF_MONTH) == 1) {
             setTiempo(getTiempo() + 1);
             interes = getTipoDeInteres();
-            if(interes > 0.5){
-                interes-=0.5;
-                importe = 3000;
-            }
-            importe += (estado() + interes + getTiempo()) / 1200;
+            if(estado() <= 3000){
+                importe += (estado() + 0.5 + getTiempo()) / 1200;
+            } else {
+                importe += (estado() + interes + getTiempo()) / 1200;
+            }//Fin Si            
         }//Fin Si
         return importe;
     }
