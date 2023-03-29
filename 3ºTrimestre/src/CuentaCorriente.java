@@ -83,17 +83,15 @@ public class CuentaCorriente extends Cuenta{
     public double intereses(){
         //Entorno:
         GregorianCalendar date;
-        double importe, interes;
+        double importe;
         //Algoritmo:
         date = new GregorianCalendar();
         importe = 0;
         if (date.get(GregorianCalendar.DAY_OF_MONTH) == 1) {
-            setTiempo(getTiempo() + 1);
-            interes = getTipoDeInteres();
             if(estado() <= 3000){
-                importe += (estado() + 0.5 + getTiempo()) / 1200;
+                importe = 0.5/12 * estado();
             } else {
-                importe += (estado() + interes + getTiempo()) / 1200;
+                importe = getTipoDeInteres()/12 * estado();
             }//Fin Si            
         }//Fin Si
         return importe;

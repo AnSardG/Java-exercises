@@ -24,18 +24,12 @@ public class CuentaCorrienteConIn extends CuentaCorriente {
     public double intereses() {
         //Entorno:
         GregorianCalendar date;
-        double importe, interes;
+        double importe;
         //Algoritmo:
         date = new GregorianCalendar();
         importe = 0;
         if (date.get(GregorianCalendar.DAY_OF_MONTH) == 1 && estado() >= SALDOMINIMO) {
-            setTiempo(getTiempo() + 1);
-            interes = getTipoDeInteres();
-            if (estado() <= 3000) {
-                importe += (estado() + 0.5 + getTiempo()) / 1200;
-            }else{
-                importe += (estado() + interes + getTiempo()) / 1200;
-            }//Fin Si            
+            importe = getTipoDeInteres()/12 * estado();         
         }//Fin Si
         return importe;
     }
