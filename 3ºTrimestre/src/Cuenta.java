@@ -13,7 +13,7 @@ public abstract class Cuenta {
     public Cuenta() {
     }
 
-    public Cuenta(String nombre, String apellidos, String entidad, String sucursal, String dc, String numero, 
+    public Cuenta(String nombre, String apellidos, String entidad, String sucursal, String dc, String numero,
             double saldo, double tipoDeInteres) {
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -31,68 +31,68 @@ public abstract class Cuenta {
      */
     public String getNombre() {
         return nombre;
-    }
+    }//Fin Método
 
     /**
      * @param nombre the nombre to set
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
+    }//Fin Método
 
     /**
      * @return the apellidos
      */
     public String getApellidos() {
         return apellidos;
-    }
+    }//Fin Método
 
     /**
      * @param apellidos the apellidos to set
      */
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
-    }
+    }//Fin Método
 
     /**
      * @return the tipoDeInteres
      */
     public double getTipoDeInteres() {
         return tipoDeInteres;
-    }
+    }//Fin Método
 
     /**
      * @param tipoDeInteres the tipoDeInteres to set
      */
     public void setTipoDeInteres(double tipoDeInteres) {
         this.tipoDeInteres = tipoDeInteres;
-    }
+    }//Fin Método
 
     public String getCCC() {
         return iban;
-    }
+    }//Fin Método
 
-    public void setCCC(String CCC) {
-        CCC = CCC.trim().replaceAll(" +", "");
-        this.entidad = CCC.substring(0, 4);
-        this.sucursal = CCC.substring(4, 8);
-        this.dc = CCC.substring(8, 10);
-        this.numero = CCC.substring(10);
-    }
-    
-    public void calculaIban(){
-        
-    }
+    public void setCCC(String entidad, String sucursal, String dc, String numero) {
+        this.entidad = entidad;
+        this.sucursal = sucursal;
+        this.dc = dc;
+        this.numero = numero;
+    }//Fin Método
+
+    public void calculaIban() {
+        iban = "ES" + dc + " " + entidad + " " + sucursal + " " + dc + numero.substring(0, 2)
+                + " " + numero.substring(2, 6) + " " + numero.substring(6);
+    }//Fin Método
 
     public double estado() {
         return saldo;
-    }
+    }//Fin Método
 
     public abstract void comisiones();
 
     public void ingreso(double cantidad) {
         saldo += cantidad;
-    }
+    }//Fin Método
 
     public boolean reintegro(double cantidad) {
         //Entorno:
@@ -103,7 +103,7 @@ public abstract class Cuenta {
             saldo -= cantidad;
         }//Fin Si
         return saldoSuficiente;
-    }
+    }//Fin Método
 
     public abstract double intereses();
 }

@@ -5,82 +5,89 @@ import java.util.GregorianCalendar;
  *
  * @author Antonio Sard González
  */
-public class CuentaCorriente extends Cuenta{
+public class CuentaCorriente extends Cuenta {
     //Atributos:
+
     private int transacciones, transExentas;
     private double importePorTrans;
     //Constructores:
-    public CuentaCorriente(){
+
+    public CuentaCorriente() {
     }
-    public CuentaCorriente(String nombre, String CCC, double saldo, double tipoDeInteres,
-            double importePorTrans, int transExentas){
-        super(nombre, CCC, saldo, tipoDeInteres);
+
+    public CuentaCorriente(String nombre, String apellidos, String entidad, String sucursal,
+            String dc, String numero, double saldo, double tipoDeInteres, double importePorTrans,
+            int transExentas) {
+        super(nombre, apellidos, entidad, sucursal, dc, numero, saldo, tipoDeInteres);
         this.importePorTrans = importePorTrans;
         this.transExentas = transExentas;
     }
     //Métodos:
-    public void decrementarTransacciones(){
+
+    protected void decrementarTransacciones() {
         transacciones--;
-    }
+    }//Fin Método
 
     /**
      * @return the transExentas
      */
     public int getTransExentas() {
         return transExentas;
-    }
+    }//Fin Método
 
     /**
      * @param transExentas the transExentas to set
      */
     public void setTransExentas(int transExentas) {
         this.transExentas = transExentas;
-    }
+    }//Fin Método
 
     /**
      * @return the importePorTrans
      */
     public double getImportePorTrans() {
         return importePorTrans;
-    }
+    }//Fin Método
 
     /**
      * @param importePorTrans the importePorTrans to set
      */
     public void setImportePorTrans(double importePorTrans) {
         this.importePorTrans = importePorTrans;
-    }
-    
-    public void ingreso(float cantidad){
-         super.ingreso(cantidad);
-         transacciones++;
-    }
-    
-    public boolean reintegro(float cantidad){
+    }//Fin Método
+
+    @Override
+    public void ingreso(double cantidad) {
+        super.ingreso(cantidad);
+        transacciones++;
+    }//Fin Método
+
+    @Override
+    public boolean reintegro(double cantidad) {
         //Entorno:
         boolean saldoSuficiente;
         //Algoritmo:
         saldoSuficiente = super.reintegro(cantidad);
-        if(saldoSuficiente){
+        if (saldoSuficiente) {
             transacciones++;
         }//Fin Si
         return saldoSuficiente;
-    }
-    
+    }//Fin Método
+
     @Override
-    public void comisiones(){
-         //Entorno:
+    public void comisiones() {
+        //Entorno:
         GregorianCalendar date;
         //Algoritmo:
         date = new GregorianCalendar();
-        if (date.get(GregorianCalendar.DAY_OF_MONTH) == 1) {
+        if (date.get(GregorianCalendar.DAY_OF_MONTH) == 1 && transacciones - transExentas > 0) {
             reintegro((transacciones - transExentas) * importePorTrans);
             transacciones = 0;
-        }
-    }
-    
+        }//Fin Si
+    }//Fin Método
+
     @Override
-    public double intereses(){
+    public double intereses() {
         //Entorno:
         GregorianCalendar date;
         double importe;
@@ -88,13 +95,12 @@ public class CuentaCorriente extends Cuenta{
         date = new GregorianCalendar();
         importe = 0;
         if (date.get(GregorianCalendar.DAY_OF_MONTH) == 1) {
-            if(estado() <= 3000){
-                importe = 0.5/12 * estado();
+            if (estado() <= 3000) {
+                importe = 0.005 * 12 * estado();
             } else {
-                importe = getTipoDeInteres()/12 * estado();
+                importe = getTipoDeInteres() / 100 * 12 * estado();
             }//Fin Si            
         }//Fin Si
         return importe;
-    }
-    
+    }//Fin Método
 }

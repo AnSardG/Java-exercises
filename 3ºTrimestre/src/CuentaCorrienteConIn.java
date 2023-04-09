@@ -14,9 +14,10 @@ public class CuentaCorrienteConIn extends CuentaCorriente {
     public CuentaCorrienteConIn() {
     }
 
-    public CuentaCorrienteConIn(String nombre, String CCC, double saldo, double tipoDeInteres,
+    public CuentaCorrienteConIn(String nombre, String apellidos, String entidad, 
+            String sucursal, String dc, String numero, double saldo, double tipoDeInteres,
             double importePorTrans, int transExentas) {
-        super(nombre, CCC, saldo, tipoDeInteres, importePorTrans, transExentas);
+        super(nombre, apellidos, entidad, sucursal, dc, numero, saldo, tipoDeInteres, importePorTrans, transExentas);
     }
     //Métodos:
 
@@ -29,8 +30,8 @@ public class CuentaCorrienteConIn extends CuentaCorriente {
         date = new GregorianCalendar();
         importe = 0;
         if (date.get(GregorianCalendar.DAY_OF_MONTH) == 1 && estado() >= SALDOMINIMO) {
-            importe = getTipoDeInteres()/12 * estado();         
+            importe = getTipoDeInteres() / 100 * 12 * estado();         
         }//Fin Si
         return importe;
-    }
+    }//Fin Método
 }

@@ -14,8 +14,8 @@ public class CuentaAhorro extends Cuenta {
     public CuentaAhorro() {
     }
 
-    public CuentaAhorro(String nombre, String apellidos, String entidad, String sucursal, String dc, String numero,
-            double saldo, double tipoDeInteres, double cuotaMantenimiento) {
+    public CuentaAhorro(String nombre, String apellidos, String entidad, String sucursal, 
+            String dc, String numero, double saldo, double tipoDeInteres, double cuotaMantenimiento) {
         super(nombre, apellidos, entidad, sucursal, dc, numero, saldo, tipoDeInteres);
         this.cuotaMantenimiento = cuotaMantenimiento;
     }
@@ -26,14 +26,14 @@ public class CuentaAhorro extends Cuenta {
      */
     public double getCuotaMantenimiento() {
         return cuotaMantenimiento;
-    }
+    }//Fin Método
 
     /**
      * @param cuotaMantenimiento the cuotaMantenimiento to set
      */
     public void setCuotaMantenimiento(double cuotaMantenimiento) {
         this.cuotaMantenimiento = cuotaMantenimiento;
-    }
+    }//Fin Método
 
     @Override
     public void comisiones() {
@@ -43,8 +43,8 @@ public class CuentaAhorro extends Cuenta {
         date = new GregorianCalendar();
         if (date.get(GregorianCalendar.DAY_OF_MONTH) == 1) {
             reintegro(cuotaMantenimiento);
-        }
-    }
+        }//Fin Si
+    }//Fin Método
 
     @Override
     public double intereses() {
@@ -55,8 +55,8 @@ public class CuentaAhorro extends Cuenta {
         date = new GregorianCalendar();
         importe = 0;
         if (date.get(GregorianCalendar.DAY_OF_MONTH) == 1) {
-            importe = getTipoDeInteres() / 12 * estado();
-        }
+            importe = getTipoDeInteres() / 100 * 12 * estado();
+        }//Fin Si
         return importe;
-    }
+    }//Fin Método
 }
