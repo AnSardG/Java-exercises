@@ -1,9 +1,14 @@
 
+import Cuentas.CuentaCorriente;
+import Cuentas.CuentaCorrienteConIn;
+import Cuentas.CuentaAhorro;
+
+
 /**
  *
  * @author Antonio Sard González
  */
-public class pruebaCuentas {
+public class PruebaCuentas {
 
     public static void main(String[] args) {
         //Entorno:
@@ -25,7 +30,6 @@ public class pruebaCuentas {
         System.out.println("\nPRUEBA GETTERS y CONSTRUCTOR SOBRECARGADO");
         ahorro = new CuentaAhorro("Antonio", "Sard González", "0123", "3321", "39",
                 "8345634523", 2341.23, 2, 120);
-        ahorro.calculaIban();
         System.out.println("\tNombre y apellidos: " + ahorro.getNombre() + " "
                 + ahorro.getApellidos());
         System.out.println("\tTipo de interes: " + ahorro.getTipoDeInteres() 
@@ -45,7 +49,6 @@ public class pruebaCuentas {
         ahorro.setNombre("Federico");
         ahorro.setApellidos("García Muñíz");
         ahorro.setCCC("1234", "2231", "78", "1234567891");
-        ahorro.calculaIban();
         ahorro.setTipoDeInteres(3.2);
         ahorro.setCuotaMantenimiento(210);
         System.out.println("\tNombre y apellidos: " + ahorro.getNombre() + " "
@@ -70,7 +73,6 @@ public class pruebaCuentas {
         System.out.println("\nPRUEBA GETTERS Y CONSTRUCTOR SOBRECARGADO");
         corriente = new CuentaCorriente("Ángel", "Álamo González", "2223", "5453", "22",
                 "1231422145", 1200.5, 4.5, 10.2, 3);
-        corriente.calculaIban();
         System.out.println("\tNombre y apellidos: " + corriente.getNombre() + " "
                 + corriente.getApellidos());
         System.out.println("\tTipo de interes: " + corriente.getTipoDeInteres() 
@@ -91,7 +93,6 @@ public class pruebaCuentas {
         corriente.setNombre("Federico");
         corriente.setApellidos("García Muñíz");
         corriente.setCCC("1234", "2231", "78", "1234567891");
-        corriente.calculaIban();
         corriente.setTipoDeInteres(3.2);
         corriente.setImportePorTrans(20.3);
         corriente.setTransExentas(0);
@@ -110,7 +111,8 @@ public class pruebaCuentas {
         corriente.comisiones();
         System.out.println("\tSaldo tras comisiones: " + corriente.estado() + "€.");
         corriente.ingreso(0);
-        corriente.decrementarTransacciones();
+        //No puede acceder a un miembro protected
+        //corriente.decrementarTransacciones();
         System.out.println("\tSaldo tras comisiones al no haber transacciones suficientes: " 
                 + corriente.estado() + "€.");
         System.out.println("\tIntereses anuales producidos: " + corriente.intereses() + "€.");
@@ -123,7 +125,6 @@ public class pruebaCuentas {
         System.out.println("\nPRUEBA GETTERS Y CONSTRUCTOR SOBRECARGADO");
         corrienteInc = new CuentaCorrienteConIn("Pepe", "González Ramos", "1132",
                 "8978", "99", "0987654321", 6000.5, 1.5, 2.2, 3);
-        corrienteInc.calculaIban();
         System.out.println("\tNombre y apellidos: " + corrienteInc.getNombre() + " "
                 + corrienteInc.getApellidos());
         System.out.println("\tTipo de interes: " + corrienteInc.getTipoDeInteres() 
@@ -143,7 +144,6 @@ public class pruebaCuentas {
         corrienteInc.setNombre("Luis");
         corrienteInc.setApellidos("Viera Ruíz");
         corrienteInc.setCCC("1111", "2222", "11", "0123456789");
-        corrienteInc.calculaIban();
         corrienteInc.setTipoDeInteres(7.2);
         corrienteInc.setImportePorTrans(18.3);
         corrienteInc.setTransExentas(0);
@@ -161,7 +161,8 @@ public class pruebaCuentas {
         corrienteInc.comisiones();
         System.out.println("\tSaldo tras comisiones: " + corrienteInc.estado() + "€.");
         corrienteInc.ingreso(0);
-        corrienteInc.decrementarTransacciones();
+        //No puede acceder a un miembro protected
+        //corrienteInc.decrementarTransacciones();
         System.out.println("\tSaldo tras comisiones al no haber transacciones suficientes: " 
                 + corrienteInc.estado() + "€.");
         System.out.println("\tIntereses anuales producidos: " + corrienteInc.intereses() 
