@@ -45,7 +45,7 @@ public class FrecuenciaPalabras {
         if (posicion >= 0) {
             obtenerObjPalabra(posicion).incrementaContador();
         } else {
-            agrandarMatriz();
+            agrandarMatriz(matriz);
             matriz[matriz.length - 1] = palabra;
         }//Fin Si
     }
@@ -54,16 +54,13 @@ public class FrecuenciaPalabras {
         return matriz[pos];
     }
 
-    private void agrandarMatriz() {
+    private void agrandarMatriz(Palabra[] matriz) {
         //Entorno:
-        Palabra[] matrizAux;
-        int tamanio, i;
+        int i;
         //Algoritmo:
-        matrizAux = matriz;
-        tamanio = matriz.length;
-        matriz = new Palabra[tamanio + 1];
-        for (i = 0; i < matrizAux.length; i++) {
-            matriz[i] = matrizAux[i];
+        this.matriz = new Palabra[matriz.length + 1];
+        for (i = 0; i < matriz.length; i++) {
+            this.matriz[i] = matriz[i];
         }//Fin Para
     }
 }

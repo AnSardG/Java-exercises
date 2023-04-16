@@ -15,16 +15,14 @@ public class ListaTelefonos {
     }
 
     //Métodos:
-    public void unElementoMas() {
+    public void unElementoMas(CPersona[] listaTfnos) {
         //Entorno:
-        CPersona[] listaAux;
         int i;
         //Algoritmo:
-        listaAux = listaTfnos;
         nElementos++;
-        listaTfnos = new CPersona[nElementos];
+        this.listaTfnos = new CPersona[nElementos];
         for (i = 0; i < nElementos - 1; i++) {
-            listaTfnos[i] = listaAux[i];
+            this.listaTfnos[i] = listaTfnos[i];
         }//Fin Para
     }
 
@@ -33,7 +31,7 @@ public class ListaTelefonos {
         int i;
         //Algoritmo:
         if (pos >= 0 && pos < nElementos) {
-            unElementoMas();
+            unElementoMas(listaTfnos);
             for (i = listaTfnos.length - 1; i > pos; i--) {
                 listaTfnos[i] = listaTfnos[i - 1];
             }//Fin Para
@@ -44,7 +42,7 @@ public class ListaTelefonos {
     }
 
     public void aniadir(CPersona persona) {
-        unElementoMas();
+        unElementoMas(listaTfnos);
         listaTfnos[nElementos - 1] = persona;
     }
 
