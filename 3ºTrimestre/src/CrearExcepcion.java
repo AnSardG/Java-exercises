@@ -12,7 +12,7 @@ public class CrearExcepcion {
     /**
      * @param args the command line arguments
      */
-    public static int divide(int a, int b) throws MiExcepcion,ArithmeticException {
+    public static int divide(int a, int b) throws MiExcepcion, ArithmeticException {
         int res;
         if (b < 1) {
             //throw new MiExcepcion("Denominador negativo");
@@ -30,7 +30,7 @@ public class CrearExcepcion {
         y = -1;
         try {
             System.out.println(divide(x, y));
-        } catch (ArithmeticException ae){
+        } catch (ArithmeticException ae) {
             System.out.println(ae.getMessage());
         } catch (MiExcepcion m) {
             System.out.println(m.toString());
@@ -40,8 +40,7 @@ public class CrearExcepcion {
 
 class MiExcepcion extends Exception {
 
-    public MiExcepcion() {
-        super();
+    public MiExcepcion() {        
     }
 
     public MiExcepcion(String s) {
@@ -49,9 +48,9 @@ class MiExcepcion extends Exception {
     }
 
     public String toString() {
-        String msg=this.getMessage();
-        if (msg==null){
-            msg="Sin mensaje";
+        String msg = this.getMessage();
+        if (msg == null) {
+            msg = "Sin mensaje";
         }
         return "Se ha producido la excepción "
                 + this.getClass().getName() + "\n"

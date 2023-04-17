@@ -51,7 +51,14 @@ public class FrecuenciaPalabras {
     }
 
     public Palabra obtenerObjPalabra(int pos) {
-        return matriz[pos];
+        //Entorno:
+        Palabra palabra;
+        //Algoritmo:
+        palabra = null;
+        if(pos>-1 && pos < matriz.length){
+            palabra = matriz[pos];
+        }//Fin Si
+        return palabra;
     }
 
     private void agrandarMatriz(Palabra[] matriz) {

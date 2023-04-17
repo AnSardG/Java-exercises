@@ -50,27 +50,7 @@ public class Empleado implements Comparable<Empleado> {
     }
 
     @Override
-    public int compareTo(Empleado emp) {
-        //Entorno:
-        int sgn;
-        //Algoritmo:
-        try {
-            if (this.getSueldo() > emp.getSueldo()) {
-                sgn = 1;
-            } else if (this.getSueldo() == emp.getSueldo()) {
-                sgn = 0;
-            } else {
-                sgn = -1;
-            }//Fin Si
-        } catch (NullPointerException np) {
-            System.out.println(np.getMessage());
-            System.out.println("Empleado no válido.");
-            sgn = -1;
-        } catch (ClassCastException cc) {
-            System.out.println(cc.getMessage());
-            System.out.println("El objeto no es un empleado.");
-            sgn = -1;
-        }//Fin Try
-        return sgn;
+    public int compareTo(Empleado emp) {        
+        return (int)(sueldo-emp.getSueldo());
     }
 }
