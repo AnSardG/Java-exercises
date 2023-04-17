@@ -101,31 +101,36 @@ public class Serie implements Entregable {
         //Entorno:
         String linea;
         //Algoritmo:
-        if (!titulo.isEmpty()) {
-            linea = "Título: " + titulo;
-        } else {
-            linea = "Sin título";
-        }//Fin Si
-        if (!creador.isEmpty()) {
-            linea += ". Creador: " + creador;
-        } else {
-            linea += ". Sin creador";
-        }//Fin Si
-        if (temporadas != -1) {
-            linea += ". Temporadas: " + Byte.toString(temporadas);
-        } else {
-            linea += ". Sin temporadas";
-        }//Fin Si
-        if (!genero.isEmpty()) {
-            linea += ". Género: " + genero;
-        } else {
-            linea += ". Sin género";
-        }//Fin Si
-        if (entregado) {
-            linea += ". Ya entregado.";
-        } else {
-            linea += ". Sin entregar.";
-        }//Fin Si        
+        try {
+            if (!titulo.isEmpty()) {
+                linea = "Título: " + titulo;
+            } else {
+                linea = "Sin título";
+            }//Fin Si
+            if (!creador.isEmpty()) {
+                linea += ". Creador: " + creador;
+            } else {
+                linea += ". Sin creador";
+            }//Fin Si
+            if (temporadas != -1) {
+                linea += ". Temporadas: " + Byte.toString(temporadas);
+            } else {
+                linea += ". Sin temporadas";
+            }//Fin Si
+            if (!genero.isEmpty()) {
+                linea += ". Género: " + genero;
+            } else {
+                linea += ". Sin género";
+            }//Fin Si
+            if (entregado) {
+                linea += ". Ya entregado.";
+            } else {
+                linea += ". Sin entregar.";
+            }//Fin Si 
+        } catch (NullPointerException np) {
+            linea = "Serie no válida.";
+        }//Fin Try
+
         return linea;
     }
 
@@ -165,7 +170,7 @@ public class Serie implements Entregable {
         } catch (ClassCastException cc) {
             System.out.println(cc.getMessage());
         } finally {
-            if(sgn == 2){
+            if (sgn == 2) {
                 sgn = -2;
             }//Fin Si
         }//Fin Try

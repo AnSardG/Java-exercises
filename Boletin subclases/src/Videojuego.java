@@ -1,28 +1,33 @@
+
 /**
  *
  * @author Antonio Sard González
  */
-public class Videojuego implements Entregable{
+public class Videojuego implements Entregable {
     //Atributos:
+
     private String titulo, genero, compania;
     private short horasEstimadas;
     private boolean entregado;
     //Constructores:
-    public Videojuego(){
+
+    public Videojuego() {
         titulo = "";
         genero = "";
         compania = "";
         horasEstimadas = 10;
         entregado = false;
     }
-    public Videojuego(String titulo, short horasEstimadas){
+
+    public Videojuego(String titulo, short horasEstimadas) {
         setTitulo(titulo);
         setHorasEstimadas(horasEstimadas);
         genero = "";
         compania = "";
         entregado = false;
     }
-    public Videojuego(String titulo, short horasEstimadas, String genero, String compania){
+
+    public Videojuego(String titulo, short horasEstimadas, String genero, String compania) {
         setTitulo(titulo);
         setHorasEstimadas(horasEstimadas);
         setGenero(genero);
@@ -84,60 +89,67 @@ public class Videojuego implements Entregable{
      * @param horasEstimadas the horasEstimadas to set
      */
     public void setHorasEstimadas(short horasEstimadas) {
-        if(horasEstimadas > 0){
-            this.horasEstimadas = horasEstimadas;    
+        if (horasEstimadas > 0) {
+            this.horasEstimadas = horasEstimadas;
         } else {
             this.horasEstimadas = -1;
         }//Fin Si        
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         //Entorno:
         String linea;
         //Algoritmo:
-        if(!titulo.isEmpty()){
-            linea = "Título: " + titulo;
-        } else {
-            linea = "Sin título";
-        }//Fin Si
-        if(!compania.isEmpty()){
-            linea += ". Compañía: "+ compania;
-        } else {
-            linea += ". Sin compañía";
-        }//Fin Si        
-        if(!genero.isEmpty()){
-            linea += ". Género: " + genero;
-        } else {
-            linea += ". Sin género";
-        }//Fin Si
-        if(horasEstimadas != -1){
-            linea += ". Horas estimadas: " + Short.toString(horasEstimadas);
-        } else {
-            linea += ". Sin horas estimadas";
-        }//Fin Si
-        if(entregado){
-            linea += ". Ya entregado.";
-        }else{
-            linea += ". Sin entregar.";
-        }//Fin Si        
-        return linea; 
+        try {
+            if (!titulo.isEmpty()) {
+                linea = "Título: " + titulo;
+            } else {
+                linea = "Sin título";
+            }//Fin Si
+            if (!compania.isEmpty()) {
+                linea += ". Compañía: " + compania;
+            } else {
+                linea += ". Sin compañía";
+            }//Fin Si        
+            if (!genero.isEmpty()) {
+                linea += ". Género: " + genero;
+            } else {
+                linea += ". Sin género";
+            }//Fin Si
+            if (horasEstimadas != -1) {
+                linea += ". Horas estimadas: " + Short.toString(horasEstimadas);
+            } else {
+                linea += ". Sin horas estimadas";
+            }//Fin Si
+            if (entregado) {
+                linea += ". Ya entregado.";
+            } else {
+                linea += ". Sin entregar.";
+            }//Fin Si        
+        } catch (NullPointerException np) {
+            linea = "Videojuego no válido.";
+        }//Fin Try        
+        return linea;
     }
-    
+
     @Override
-    public void entregar(){
+    public void entregar() {
         entregado = true;
     }
+
     @Override
-    public void devolver(){
+    public void devolver() {
         entregado = false;
     }
+
     @Override
-    public boolean isEntregado(){
+    public boolean isEntregado() {
         return entregado;
     }
+
     @Override
-    public int compareTo(Object juego){
+    public int compareTo(Object juego) {
         //Entorno:
         int sgn;
         short auxHoras;
@@ -157,7 +169,7 @@ public class Videojuego implements Entregable{
         } catch (ClassCastException cc) {
             System.out.println(cc.getMessage());
         } finally {
-            if(sgn == 2){
+            if (sgn == 2) {
                 sgn = -2;
             }//Fin Si
         }//Fin Try
