@@ -36,8 +36,6 @@ public class ListaTelefonos {
                 listaTfnos[i] = listaTfnos[i - 1];
             }//Fin Para
             listaTfnos[pos] = persona;
-        } else {
-            System.out.println("Índice fuera de rango.");
         }//Fin Si
     }
 
@@ -89,7 +87,7 @@ public class ListaTelefonos {
         int pos;
         //Algoritmo:
         pos = 0;
-        while (pos < nElementos && !listaTfnos[pos].obtenerNombre().equals(nom)) {
+        while (pos < nElementos - 1 && !listaTfnos[pos].obtenerNombre().equals(nom)) {
             pos++;
         }//Fin Mientras
         if (!listaTfnos[pos].obtenerNombre().equals(nom)) {
@@ -105,7 +103,6 @@ public class ListaTelefonos {
         if (pos >= 0 && pos < nElementos) {
             persona = listaTfnos[pos];
         } else {
-            System.out.println("Índice fuera de rango.");
             persona = null;
         }//Fin Si
         return persona;

@@ -44,15 +44,16 @@ public class AAgenda {
     public static void main(String[] args) {
         //Entorno:
         byte op;
-        int pos, ultimaBusqueda;
+        int pos;
         long telefono;
         String nombre;
         CPersona persona;
         ListaTelefonos listin;
         //Algoritmo:
         listin = new ListaTelefonos();
-        ultimaBusqueda = -1;
+        pos = -1;
         op = muestraMenu();
+        nombre = "";
         while (op != 5) {
             switch (op) {
                 case 1:
@@ -69,7 +70,6 @@ public class AAgenda {
                                     .obtenerDireccion());
                             System.out.println("Teléfono: " + listin.valorEn(pos)
                                     .obtenerTelefono());
-                            ultimaBusqueda = pos;
                         } else {
                             System.out.println("No se encuentra en la agenda.");
                         }//Fin Si
@@ -79,9 +79,8 @@ public class AAgenda {
                     break;
                 case 2:
                     if (listin.longitud() > 0) {
-                        if (ultimaBusqueda >= 0) {
-                            nombre = listin.valorEn(ultimaBusqueda).obtenerNombre();
-                            pos = ultimaBusqueda + 1;
+                        if (pos >= 0) {
+                            pos++;
                             while (pos < listin.longitud() && !listin.valorEn(pos)
                                     .obtenerNombre().equals(nombre)) {
                                 pos++;
@@ -94,12 +93,11 @@ public class AAgenda {
                                         .obtenerDireccion());
                                 System.out.println("Teléfono: " + listin.valorEn(pos)
                                         .obtenerTelefono());
-                                ultimaBusqueda = pos;
                             } else {
-                                ultimaBusqueda = -1;
+                                pos = -1;
                             }//Fin Si
                         }//Fin Si
-                        if (ultimaBusqueda == -1) {
+                        if (pos == -1) {
                             System.out.println("No hay datos");
                         }//Fin Si
                     } else {
