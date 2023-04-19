@@ -33,8 +33,7 @@ public class Ej2 {
         //Entorno:
         Electrodomestico e;
         float precio, peso;
-        String color, opDatos;
-        char consumo;
+        String color, opDatos, consumo;
         //Algoritmo:
         opDatos = Ej2.pideCuantosDatos();
         if (opDatos.equals("a") || opDatos.equals("t")) {
@@ -50,7 +49,7 @@ public class Ej2 {
                 System.out.print("Introduzca el color (blanco, negro, rojo, azul o gris): ");
                 color = Leer.dato();
                 System.out.print("Introduzca el consumo energético: ");
-                consumo = Leer.datoChar();
+                consumo = Leer.dato();
                 e = new Electrodomestico(precio, color, consumo, peso);
             } else {
                 e = new Electrodomestico(precio, peso);
@@ -65,8 +64,7 @@ public class Ej2 {
         //Entorno:
         Lavadora l;
         float precio, peso, carga;
-        String color, opDatos;
-        char consumo;
+        String color, opDatos, consumo;
         //Algoritmo:
         opDatos = Ej2.pideCuantosDatos();
         if (opDatos.equals("a") || opDatos.equals("t")) {
@@ -82,7 +80,7 @@ public class Ej2 {
                 System.out.print("Introduzca el color (blanco, negro, rojo, azul o gris): ");
                 color = Leer.dato();
                 System.out.print("Introduzca el consumo energético: ");
-                consumo = Leer.datoChar();
+                consumo = Leer.dato();
                 do {
                     System.out.print("Introduzca la carga: ");
                     carga = Leer.datoFloat();
@@ -101,8 +99,7 @@ public class Ej2 {
         //Entorno:
         Television t;
         float precio, peso;
-        String color, opDatos, op;
-        char consumo;
+        String color, opDatos, op, consumo;
         short resolucion;
         boolean sintonizador;
         //Algoritmo:
@@ -120,7 +117,7 @@ public class Ej2 {
                 System.out.print("Introduzca el color (blanco, negro, rojo, azul o gris): ");
                 color = Leer.dato();
                 System.out.print("Introduzca el consumo energético: ");
-                consumo = Leer.datoChar();
+                consumo = Leer.dato();
                 System.out.print("Introduzca su resolución en pulgadas: ");
                 resolucion = Leer.datoShort();
                 do {

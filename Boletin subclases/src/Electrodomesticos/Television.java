@@ -20,7 +20,7 @@ public class Television extends Electrodomestico{
         resolucion = resolucionPorDefecto;
         sintonizadorTdt = sintonizadorTdtPorDefecto;
     }
-    public Television(float precioBase, String color, char consumoEnergetico, float peso
+    public Television(float precioBase, String color, String consumoEnergetico, float peso
             , short resolucion, boolean sintonizadorTdt){
         super(precioBase, color, consumoEnergetico, peso);
         this.resolucion = resolucion;
