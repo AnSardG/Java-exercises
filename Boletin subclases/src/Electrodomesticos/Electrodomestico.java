@@ -96,7 +96,7 @@ public class Electrodomestico {
 
     protected void comprobarColor(String color) {
         try {            
-            this.color = Color.valueOf(color);
+            this.color = Color.valueOf(color.toUpperCase());
         } catch(IllegalArgumentException iae){
             this.color = colorPorDefecto;
         }//Fin Try  
@@ -104,7 +104,7 @@ public class Electrodomestico {
 
     protected void comprobarConsumoEnergetico(String letra) {   
         try {            
-            consumoEnergetico = ConsumoEnergetico.valueOf(letra);
+            consumoEnergetico = ConsumoEnergetico.valueOf(letra.toUpperCase());
         } catch(IllegalArgumentException iae){
             consumoEnergetico = consumoPorDefecto;
         }//Fin Try        
