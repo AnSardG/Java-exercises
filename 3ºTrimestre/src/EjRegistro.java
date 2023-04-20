@@ -4,7 +4,7 @@
  * @author Antonio Sard González
  */
 public class EjRegistro {
-    public static void muestraAlumnos(Alumno[] alumnos){
+    public static void muestraAlumnos(EjemploAlumno[] alumnos){
         //Entorno:
         byte i;
         //Algoritmo:
@@ -17,12 +17,12 @@ public class EjRegistro {
     }//Fin Procedimiento
     public static void main(String[] args) {
         //Entorno:
-        Alumno[] alumnos;
+        EjemploAlumno[] alumnos;
         byte codigo, i;
         String nombre;
         float nota;
         //Algoritmo:
-        alumnos = new Alumno[8];
+        alumnos = new EjemploAlumno[8];
         for (i = 0; i < alumnos.length; i++) {
             System.out.println("Alumno "+(i+1)+":");
             System.out.print("\tIntroduzca el código: ");
@@ -35,7 +35,7 @@ public class EjRegistro {
                 System.out.print("\tIntroduzca la nota: ");
                 nota = Leer.datoFloat();
             } while (nota < 0 || nota > 10);
-            alumnos[i] = new Alumno(codigo, nombre, nota);
+            alumnos[i] = new EjemploAlumno(codigo, nombre, nota);
         }//Fin Para
         System.out.println("---------------------------");
         EjRegistro.muestraAlumnos(alumnos);
