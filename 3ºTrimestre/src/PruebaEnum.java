@@ -1,8 +1,8 @@
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
-import java.util.NoSuchElementException;
+//import java.util.ListIterator;
+
 
 /**
  *
@@ -59,7 +59,7 @@ public class PruebaEnum {
     public static void main(String[] args) {
         //Entorno:
         List<EjemploAlumno> alumnos;
-        ListIterator<EjemploAlumno> iAlumno;
+//        ListIterator<EjemploAlumno> iAlumno;
         String nombre, apellidos;
         Estado estado;
         int i;
@@ -78,14 +78,19 @@ public class PruebaEnum {
                 alumnos.add(new EjemploAlumno(nombre, apellidos));
             }
         } while (Utilidades.continuar());
-        iAlumno = alumnos.listIterator();
-        i = 0;
-        while (iAlumno.hasNext()) {
-            System.out.println("Nombre: " + alumnos.get(i).getNombre());
-            System.out.println("Apellidos: " + alumnos.get(i).getApellidos());
-            System.out.println("Estado: " + alumnos.get(i).getEstado());
-            i++;
-            iAlumno.next();
+//        iAlumno = alumnos.listIterator();
+        for(EjemploAlumno a: alumnos){
+            System.out.println("Nombre: " + a.getNombre());
+            System.out.println("Apellidos: " + a.getApellidos());
+            System.out.println("Estado: " + a.getEstado());
         }
+//        i = 0;
+//        while (iAlumno.hasNext()) {
+//            System.out.println("Nombre: " + alumnos.get(i).getNombre());
+//            System.out.println("Apellidos: " + alumnos.get(i).getApellidos());
+//            System.out.println("Estado: " + alumnos.get(i).getEstado());
+//            i++;
+//            iAlumno.next();
+//        }
     }//Fin Programa
 }
