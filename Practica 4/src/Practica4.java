@@ -16,10 +16,40 @@ public class Practica4 {
         return (byte) fecha.get(GregorianCalendar.DAY_OF_WEEK);
     }//Fin Función
 
-    public static void pintaFecha(GregorianCalendar fecha) {
-        //Algoritmo:      
-        System.out.println("\t\tCALENDARIO " + fecha.getDisplayName(GregorianCalendar.MONTH, GregorianCalendar.LONG, Locale.getDefault()).toUpperCase()
+    public static void pintaFecha(GregorianCalendar fecha) {             
+        /*
+           
+           Este caso se puede realizar creando una tabla de String, inicializando
+           dicha tabla con los valores de cada mes ("ENERO", "FEBRERO", "MARZO"...) 
+           e imprimiendo el mes según la posición de la tabla correspondiente 
+           a este; sin embargo, he optado por utilizar el método "getDisplayName()" 
+           heredado de Calendar ya que realiza lo mismo sin tener que crear e 
+           inicializar ningún vector de objetos, esta solución debería ocupar menos RAM.
+           
+           El método "setDefault()" de la clase Locale no modifica la región ni el
+           idioma del ordenador anfitrión que ejecute el código, solo cambia la instancia
+           actual de la JVM, por lo tanto lo utilizamos para asegurarnos que el 
+           mes esté siempre escrito en español en este caso.
+           
+         */
+        //Entorno:
+        Locale esp;
+        //Algoritmo:
+        esp = new Locale("es");
+        Locale.setDefault(esp);
+        System.out.println("\t\tCALENDARIO " + fecha.getDisplayName(GregorianCalendar.MONTH
+                , GregorianCalendar.LONG, Locale.getDefault()).toUpperCase() 
                 + " DE " + fecha.get(GregorianCalendar.YEAR));
+        /*
+          Segunda manera de formar la fecha (descrita anteriormente): 
+         
+          //Entorno:
+          String[] meses = {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO"
+          , "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"};
+          //Algoritmo:
+          System.out.println("\t\tCALENDARIO " + meses[fecha.get(GregorianCalendar.MONTH)] 
+                + " DE " + fecha.get(GregorianCalendar.YEAR));
+         */
     }//Fin Procedimiento
 
     public static void pintaCalendario(GregorianCalendar fecha) {
