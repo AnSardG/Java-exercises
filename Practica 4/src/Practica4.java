@@ -1,5 +1,6 @@
 
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 /**
  *
@@ -16,14 +17,9 @@ public class Practica4 {
     }//Fin Función
 
     public static void pintaFecha(GregorianCalendar fecha) {
-        //Entorno:
-        String[] meses = {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO",
-            "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"};
-        //Algoritmo:
-        System.out.println("");
-        System.out.println("\t\tCALENDARIO " + meses[fecha.get(GregorianCalendar.MONTH)]
+        //Algoritmo:      
+        System.out.println("\t\tCALENDARIO " + fecha.getDisplayName(GregorianCalendar.MONTH, GregorianCalendar.LONG, Locale.getDefault()).toUpperCase()
                 + " DE " + fecha.get(GregorianCalendar.YEAR));
-        System.out.println("");
     }//Fin Procedimiento
 
     public static void pintaCalendario(GregorianCalendar fecha) {
@@ -33,7 +29,9 @@ public class Practica4 {
         //Algoritmo:
         totalDias = Practica4.obtieneTotalDias(fecha);
         primerDia = Practica4.obtienePrimerDia(fecha);
+        System.out.println("");
         Practica4.pintaFecha(fecha);
+        System.out.println("");
         System.out.println("\tLU\tMA\tMI\tJU\tVI\tSA\tDO");
         linea = "";
         dia = 1;
@@ -51,24 +49,26 @@ public class Practica4 {
             linea += " " + Byte.toString(dia) + "\t";
             dia++;
             diaSemana++;
-        }//Fin Mientras
-        for (diaSemana = diaSemana; diaSemana <= 7; diaSemana++) {
-            linea += Byte.toString(dia) + "\t";
-            dia++;
-        }//Fin Para       
-        System.out.println(linea);
-        for (semana = 2; semana <= 3; semana++) {
-            linea = "\t";
-            for (diaSemana = 1; diaSemana <= 7; diaSemana++) {
+            if (diaSemana == 8) {
+                System.out.println(linea);
+                linea = "\t";
+                diaSemana = 1;
+            }//Fin Si
+        }//Fin Mientras        
+        for (semana = 2; semana <= 4; semana++) {
+            while (diaSemana <= 7) {
                 linea += Byte.toString(dia) + "\t";
                 dia++;
-            }//Fin Para
+                diaSemana++;
+            }//Fin Mientras
+            diaSemana = 1;
             System.out.println(linea);
+            linea = "\t";
         }//Fin Para
         if (dia <= totalDias) {
-            linea = "\t";
-            for (dia = dia; dia <= totalDias; dia++) {
+            while (dia <= totalDias) {
                 linea += Byte.toString(dia) + "\t";
+                dia++;
             }//Fin Para
             System.out.println(linea);
         }//Fin Si
