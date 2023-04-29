@@ -1,6 +1,5 @@
 
 import java.util.GregorianCalendar;
-import java.util.Locale;
 
 /**
  *
@@ -16,38 +15,44 @@ public class Practica4 {
         return (byte) fecha.get(GregorianCalendar.DAY_OF_WEEK);
     }//Fin Función
 
-    public static void pintaFecha(GregorianCalendar fecha) {             
+    public static void pintaFecha(GregorianCalendar fecha) {
         /*           
-           Este caso se puede realizar creando una tabla de String, inicializando
-           dicha tabla con los valores de cada mes ("ENERO", "FEBRERO", "MARZO"...) 
-           e imprimiendo el mes según la posición de la tabla correspondiente 
-           a este; sin embargo, he optado por utilizar el método "getDisplayName()" 
-           heredado de Calendar ya que realiza lo mismo sin tener que inicializar
-           y cargar ningún vector de objetos, esta solución debería ocupar menos RAM.
-           
-           El método "setDefault()" de la clase Locale no modifica la región ni el
-           idioma del ordenador anfitrión que ejecute el código, solo cambia la instancia
-           actual de la JVM temporalmente, por lo tanto lo utilizamos para asegurar que el 
-           mes esté siempre escrito en español en este caso.           
+         Este caso se puede realizar creando una tabla de String, inicializando
+         dicha tabla con los valores de cada mes ("ENERO", "FEBRERO", "MARZO"...) 
+         e imprimiendo el mes según la posición de la tabla correspondiente 
+         a este; al buscar otra solución que ocupase menos RAM, encontré el método          
+         "getDisplayName()" en GregorianCalendar heredado de Calendar ya que realiza 
+         lo mismo sin tener que inicializar y cargar ningún vector de objetos, 
+         esta solución quizá ocuparía menos RAM pero supondría el uso de una clase
+         que no se ha explicado ya que se tiene que pasar un "Locale" por parámetro,
+         aun así veo interesante esta alternativa.                            
          */
+
         //Entorno:
-        Locale esp;
+        String[] meses = {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO"
+                , "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"};
         //Algoritmo:
-        esp = new Locale("es");
-        Locale.setDefault(esp);
-        System.out.println("\t\tCALENDARIO " + fecha.getDisplayName(GregorianCalendar.MONTH
-                , GregorianCalendar.LONG, Locale.getDefault()).toUpperCase() 
+        System.out.println("\t\tCALENDARIO " + meses[fecha.get(GregorianCalendar.MONTH)]
                 + " DE " + fecha.get(GregorianCalendar.YEAR));
+
         /*
-          Segunda manera de formar la fecha (descrita anteriormente): 
+         Segunda manera de formar la fecha descrita anteriormente (se debe importar
+         la clase Locale de java.util): 
          
-          //Entorno:
-          String[] meses = {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO"
-          , "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"};
-          //Algoritmo:
-          System.out.println("\t\tCALENDARIO " + meses[fecha.get(GregorianCalendar.MONTH)] 
-                + " DE " + fecha.get(GregorianCalendar.YEAR));
-         */
+            //Entorno:
+            Locale esp;
+            //Algoritmo:
+            esp = new Locale("es");
+            Locale.setDefault(esp);
+            System.out.println("\t\tCALENDARIO " + fecha.getDisplayName(GregorianCalendar.MONTH
+            , GregorianCalendar.LONG, Locale.getDefault()).toUpperCase() 
+            + " DE " + fecha.get(GregorianCalendar.YEAR));
+         
+         El método "setDefault()" de la clase Locale no modifica la región ni el
+         idioma del ordenador anfitrión que ejecute el código, solo cambia la instancia
+         actual de la JVM temporalmente, por lo tanto lo utilizamos para asegurar que el 
+         mes esté siempre escrito en español en este caso.   
+        */
     }//Fin Procedimiento
 
     public static void pintaCalendario(GregorianCalendar fecha) {
