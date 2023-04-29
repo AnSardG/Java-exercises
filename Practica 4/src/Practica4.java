@@ -17,20 +17,18 @@ public class Practica4 {
     }//Fin Función
 
     public static void pintaFecha(GregorianCalendar fecha) {             
-        /*
-           
+        /*           
            Este caso se puede realizar creando una tabla de String, inicializando
            dicha tabla con los valores de cada mes ("ENERO", "FEBRERO", "MARZO"...) 
            e imprimiendo el mes según la posición de la tabla correspondiente 
            a este; sin embargo, he optado por utilizar el método "getDisplayName()" 
-           heredado de Calendar ya que realiza lo mismo sin tener que crear e 
-           inicializar ningún vector de objetos, esta solución debería ocupar menos RAM.
+           heredado de Calendar ya que realiza lo mismo sin tener que inicializar
+           y cargar ningún vector de objetos, esta solución debería ocupar menos RAM.
            
            El método "setDefault()" de la clase Locale no modifica la región ni el
            idioma del ordenador anfitrión que ejecute el código, solo cambia la instancia
-           actual de la JVM, por lo tanto lo utilizamos para asegurarnos que el 
-           mes esté siempre escrito en español en este caso.
-           
+           actual de la JVM temporalmente, por lo tanto lo utilizamos para asegurar que el 
+           mes esté siempre escrito en español en este caso.           
          */
         //Entorno:
         Locale esp;
@@ -79,7 +77,7 @@ public class Practica4 {
             linea += " " + Byte.toString(dia) + "\t";
             dia++;
             diaSemana++;
-            if (diaSemana == 8) {
+            if (diaSemana > 7) {
                 System.out.println(linea);
                 linea = "\t";
                 diaSemana = 1;
@@ -118,8 +116,8 @@ public class Practica4 {
         mes--;
         System.out.print("Año: ");
         anio = Leer.datoShort();
-        while (anio < 46 || anio > 2123) {
-            System.out.print("Año no válido. Introduzca un año válido [46-2123]: ");
+        while (anio < 46) {
+            System.out.print("Año no válido. Introduzca un año válido [46-32.767]: ");
             anio = Leer.datoShort();
         }//Fin Mientras
         return new GregorianCalendar(anio, mes, 7);
