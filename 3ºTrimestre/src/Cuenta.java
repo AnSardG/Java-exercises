@@ -1,7 +1,12 @@
 
 /**
+ * <h1>Cuenta bancaria de la que heredarán los diferentes tipos de cuenta
+ * bancaria.</h1>
  *
+ *
+ * @version 1.0
  * @author Antonio Sard González
+ * @since 2023-21-04
  */
 public abstract class Cuenta {
     //Atributos:
@@ -13,6 +18,17 @@ public abstract class Cuenta {
     public Cuenta() {
     }
 
+    /**
+     *
+     * @param nombre
+     * @param apellidos
+     * @param entidad
+     * @param sucursal
+     * @param dc
+     * @param numero
+     * @param saldo
+     * @param tipoDeInteres
+     */
     public Cuenta(String nombre, String apellidos, String entidad, String sucursal, String dc, String numero,
             double saldo, double tipoDeInteres) {
         this.nombre = nombre;
@@ -68,6 +84,10 @@ public abstract class Cuenta {
         this.tipoDeInteres = tipoDeInteres;
     }//Fin Método
 
+    /**
+     *
+     * @return String
+     */
     public String getCCC() {
         return iban;
     }//Fin Método
@@ -84,6 +104,10 @@ public abstract class Cuenta {
                 + " " + numero.substring(2, 6) + " " + numero.substring(6);
     }//Fin Método
 
+    /**
+     *
+     * @return double
+     */
     public double estado() {
         return saldo;
     }//Fin Método
@@ -94,6 +118,11 @@ public abstract class Cuenta {
         saldo += cantidad;
     }//Fin Método
 
+    /**
+     *
+     * @param cantidad
+     * @return boolean
+     */
     public boolean reintegro(double cantidad) {
         //Entorno:
         boolean saldoSuficiente;

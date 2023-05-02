@@ -125,6 +125,23 @@ public class Practica4 {
             System.out.print("Año no válido. Introduzca un año válido [46-32.767]: ");
             anio = Leer.datoShort();
         }//Fin Mientras
+        /*
+          Instanciamos un objeto GregorianCalendar con los datos introducidos por el
+          usuario y que comience en el día 7, esto lo hago para ahorrar varias preguntas
+          en el resto de código ya que el método que devuelve el día de la semana 
+          ("fecha.get(GregorianCalendar.DAY_OF_WEEK)") considera el domingo como 
+          primer día.
+           
+          Para tratar la fecha de lunes a domingo instanciamos la fecha
+          al día anterior de la siguiente semana; por ejemplo: si el mes comienza en
+          domingo, el método anteriormente descrito devuelve "1", para que devuelva
+          lo que nosotros queremos lo hemos creado en el séptimo dia, es decir, 
+          el sábado de la siguiente semana, que efectivamente devuelve un "7" (el 
+          valor del domingo para nosotros).
+           
+          Esta alternativa es solo posible ya que, al pintar por pantalla los dias
+          del calendario, no necesitamos utilizar métodos de GregorianCalendar (para ahorrar RAM).
+         */
         return new GregorianCalendar(anio, mes, 7);
     }//Fin Función
 
