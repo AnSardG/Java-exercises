@@ -21,8 +21,8 @@ public class Practica4 {
          dicha tabla con los valores de cada mes ("ENERO", "FEBRERO", "MARZO"...) 
          e imprimiendo el mes según la posición de la tabla correspondiente 
          a este; al buscar otra solución que ocupase menos RAM, encontré el método          
-         "getDisplayName()" en GregorianCalendar heredado de Calendar ya que realiza 
-         lo mismo sin tener que inicializar y cargar ningún vector de objetos, 
+         "getDisplayName()" en GregorianCalendar (heredado de Calendar) que realiza 
+         lo mismo sin tener que inicializar y cargar ningún vector de objetos (String), 
          esta solución quizá ocuparía menos RAM pero supondría el uso de una clase
          que no se ha explicado ya que se tiene que pasar un "Locale" por parámetro,
          aun así veo interesante esta alternativa.                            
@@ -139,7 +139,7 @@ public class Practica4 {
           el sábado de la siguiente semana, que efectivamente devuelve un "7" (el 
           valor del domingo para nosotros).
            
-          Esta alternativa es solo posible ya que, al pintar por pantalla los dias
+          Esta alternativa es solo posible ya que, al pintar por pantalla los días
           del calendario, no necesitamos utilizar métodos de GregorianCalendar (para ahorrar RAM).
          */
         return new GregorianCalendar(anio, mes, 7);
