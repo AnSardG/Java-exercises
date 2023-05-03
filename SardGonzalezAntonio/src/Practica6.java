@@ -68,20 +68,6 @@ public class Practica6 {
         return matriz;
     }//Fin Función
 
-    public static int binarioEnDecimal(int num) {
-        //Entorno:
-        byte i, digitos;
-        int numDecimal;
-        //Algoritmo:
-        numDecimal = 0;
-        digitos = (byte)String.valueOf(num).length();
-        for (i = 0; i < digitos; i++) {
-            numDecimal += Math.pow(2, i) * (num % 10);
-            num /= 10;
-        }//Fin Para
-        return numDecimal;
-    }
-
     public static String convierteMatrizEnPalabra(int[][] matriz) {
         //Entorno:
         String palabra, numBinario, caracter;
@@ -94,7 +80,7 @@ public class Practica6 {
             for (col = 0; col < matriz[0].length - 1; col++) {
                 numBinario += Integer.toString(matriz[fila][col]);
             }//Fin Para
-            codigo = binarioEnDecimal(Integer.parseInt(numBinario));
+            codigo = Integer.parseInt(numBinario, 2);
             caracter = Character.getName(codigo);
             if(codigo < 91){
                 caracter = caracter.substring(caracter.length() - 1);
