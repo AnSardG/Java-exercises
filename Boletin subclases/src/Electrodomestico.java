@@ -5,17 +5,16 @@
  * @author Antonio Sard González
  */
 public class Electrodomestico {
-
+    //Atributos:
     protected float precioBase;
     protected float peso;
     protected Color color;
-    protected ConsumoEnergetico consumoEnergetico;
-    //Constructores:
+    protected ConsumoEnergetico consumoEnergetico;    
     protected final float precioPorDefecto = 100F;
     protected final float pesoPorDefecto = 5F;
     protected final Color colorPorDefecto = Color.BLANCO;
     protected final ConsumoEnergetico consumoPorDefecto = ConsumoEnergetico.F;
-
+    //Constructores:
     public Electrodomestico() {
         precioBase = precioPorDefecto;
         peso = pesoPorDefecto;

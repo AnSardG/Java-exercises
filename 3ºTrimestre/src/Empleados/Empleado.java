@@ -4,7 +4,7 @@ package Empleados;
  *
  * @author Administrador
  */
-public class Empleado extends Persona {
+public class Empleado extends Persona implements Comparable<Empleado> {
     //Atributos:
     private float sueldoBase;
     //Constructores:
@@ -18,5 +18,10 @@ public class Empleado extends Persona {
     }
     public void setSueldoBase(float sueldo){
         this.sueldoBase = sueldo;
+    }
+
+    @Override
+    public int compareTo(Empleado o) {
+        return this.getNombre().compareToIgnoreCase(o.getNombre());
     }
 }

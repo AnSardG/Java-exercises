@@ -2,9 +2,8 @@
  *
  * @author Antonio Sard González
  */
-public interface Entregable {
+public interface Entregable extends Comparable{
     public abstract void entregar();
     public abstract void devolver();
     public abstract boolean isEntregado();
-    public abstract int compareTo(Object a);
 }
