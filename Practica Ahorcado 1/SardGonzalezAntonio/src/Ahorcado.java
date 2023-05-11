@@ -9,9 +9,7 @@ import java.io.InputStreamReader;
  * @author Antonio Sard González
  */
 public class Ahorcado {
-    /*
-     * La dificultad fácil será false (0) y la difícil true (1).
-     */
+
     public static byte pideDificultad(){
         //Entorno:
         BufferedReader teclado;
