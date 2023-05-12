@@ -134,7 +134,7 @@ public class AhorcadoDificil {
                 dibujoAhorcado[7] = "     |    |";
                 break;
             case 5:
-                dibujoAhorcado[6] = "     |    o";
+                dibujoAhorcado[6] = "     |    O";
                 break;
             case 6:
                 dibujoAhorcado[5] = "     |    |";

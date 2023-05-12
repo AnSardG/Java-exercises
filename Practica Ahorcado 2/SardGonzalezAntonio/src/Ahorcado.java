@@ -53,26 +53,48 @@ public class Ahorcado {
             numPalabra = numAleatorio.nextInt(cantPalabras);
             palabra = fSalida.readLine();
             i = 0;
-            while(palabra != null && numPalabra > i){
-                fSalida.readLine();
+            while (palabra != null && i < numPalabra) {
+                palabra = fSalida.readLine();
                 i++;
             }//Fin Mientras
             palabra = fSalida.readLine();
         } catch (FileNotFoundException fnfe) {
             System.out.println("No se ha encontrado el archivo correspondiente en"
                     + "el directorio Ficheros: cree el archivo Facil.txt o Dificil.txt");
-        } catch (IOException ioe){
+        } catch (IOException ioe) {
             System.out.println("Se ha encontrado un error de E/S.");
         } finally {
-            if(fSalida != null){
-                try{
+            if (fSalida != null) {
+                try {
                     fSalida.close();
-                } catch (IOException ioe){
+                } catch (IOException ioe) {
                     System.out.println("Error de E/S al cerrar fichero");
                 }//Fin Try
             }//Fin Si
         }//Fin Try
-        
+        if (palabra == null) {
+            try {
+                if (dificultad == 1) {
+                    fSalida = new BufferedReader(new FileReader(".\\Ficheros\\Facil.txt"));
+                } else {
+                    fSalida = new BufferedReader(new FileReader(".\\Ficheros\\Dificil.txt"));
+                }//Fin Si
+                fSalida.readLine();
+                palabra = fSalida.readLine();
+                if (palabra != null) {
+                    System.out.println("Se han encontrado menos palabras en el fichero"
+                            + " de las debidas, se utilizará la primera palabra.");
+                    System.out.println(palabra.replaceAll("[a-zA-Z]", "*"));
+                }//Fin Si                       
+            } catch (FileNotFoundException fnfe) {
+                System.out.println("No se ha encontrado el archivo correspondiente en"
+                        + "el directorio Ficheros: cree el archivo Facil.txt o Dificil.txt");
+            } catch (IOException ioe) {
+                System.out.println("Se ha encontrado un error de E/S.");
+            }//Fin Try
+        } else {
+            System.out.println(palabra.replaceAll("[a-zA-Z]", "*"));
+        }//Fin Si     
         return palabra;
     }//Fin Función
 
@@ -102,26 +124,38 @@ public class Ahorcado {
         AhorcadoDificil aDificil;
         AhorcadoFacil aFacil;
         byte res, dificultad;
+        String palabra;
         //Algoritmo:
         dificultad = Ahorcado.pideDificultad();
         if (dificultad == 1) {
-            aFacil = new AhorcadoFacil(Ahorcado.buscaPalabra(dificultad));
-            do {
-                System.out.print("Introduzca una letra: ");
-                aFacil.compruebaLetra(Ahorcado.pideLetra());
-                res = aFacil.muestraResultado();
-                if (aFacil.getFallos() > 0) {
-                    aFacil.muestraListaFallos();
-                }//Fin Si                
-            } while (res == -1 && aFacil.getFallos() < aFacil.FALLOSPERMITIDOS);
+            palabra = Ahorcado.buscaPalabra(dificultad);
+            if (palabra != null) {
+                aFacil = new AhorcadoFacil(palabra);
+                do {
+                    System.out.print("Introduzca una letra: ");
+                    aFacil.compruebaLetra(Ahorcado.pideLetra());
+                    res = aFacil.muestraResultado();
+                    if (aFacil.getFallos() > 0) {
+                        aFacil.muestraListaFallos();
+                    }//Fin Si                
+                } while (res == -1 && aFacil.getFallos() < aFacil.FALLOSPERMITIDOS);
+            }//Fin Si
+
         } else {
-            aDificil = new AhorcadoDificil(Ahorcado.buscaPalabra(dificultad));
-            do {
-                System.out.print("Introduzca una letra: ");
-                aDificil.compruebaLetra(Ahorcado.pideLetra());
-                res = aDificil.muestraResultado();
-            } while (res == -1 && aDificil.getFallos()
-                    < AhorcadoDificil.FALLOSPERMITIDOS);
-        }//Fin Si              
+            palabra = Ahorcado.buscaPalabra(dificultad);
+            if (palabra != null) {
+                aDificil = new AhorcadoDificil(palabra);
+                do {
+                    System.out.print("Introduzca una letra: ");
+                    aDificil.compruebaLetra(Ahorcado.pideLetra());
+                    res = aDificil.muestraResultado();
+                } while (res == -1 && aDificil.getFallos() 
+                        < AhorcadoDificil.FALLOSPERMITIDOS);
+            }//Fin Si
+        }//Fin Si     
+        if(palabra == null){
+            System.out.println("No se encuentra ninguna palabra en el fichero,"
+                        + " comrpuebe los archivos del directorio Ficheros.");
+        }//Fin Si
     }//Fin Programa
 }
