@@ -85,7 +85,9 @@ public class Ahorcado {
                 System.out.print("Introduzca una letra: ");
                 aFacil.compruebaLetra(Ahorcado.pideLetra());
                 res = aFacil.muestraResultado();
-                aFacil.muestraListaFallos();
+                if(aFacil.getFallos() > 0){
+                    aFacil.muestraListaFallos();
+                }//Fin Si                
             } while (res == -1 && aFacil.getFallos() < aFacil.FALLOSPERMITIDOS);
         } else {
             System.out.print("Introduzca la palabra secreta: ");
