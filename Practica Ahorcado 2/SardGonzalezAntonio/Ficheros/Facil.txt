@@ -1,0 +1,11 @@
+10
+perro
+laguna
+alamo
+otorrino
+ornitorrinco
+gato
+submarino
+luz
+pollo
+amarillo
