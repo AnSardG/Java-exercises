@@ -18,7 +18,7 @@ public class Micat {
         //Algoritmo:
         fSalida = null;
         if (args.length > 0) {
-            for (String file: args) {
+            for (String file : args) {
                 try {
                     fSalida = new BufferedReader(new FileReader(file));
                     linea = fSalida.readLine();
@@ -35,13 +35,15 @@ public class Micat {
                         try {
                             fSalida.close();
                         } catch (IOException ioe) {
-                            System.out.println("Error de E/S al leer el archivo " + file + ".");
+                            System.out.println("Error de E/S al leer el archivo "
+                                    + file + ".");
                         }//Fin Try                 
                     }//Fin Si
                 }//Fin Try
             }//Fin Foreach
         } else {
-            System.out.println("Número de argumentos inválido, introduzca el nombre de un archivo.");
+            System.out.println("Número de argumentos inválido, introduzca el nombre "
+                    + "de uno o varios archivos.");
         }//Fin Si         
     }//Fin Programa
 }
