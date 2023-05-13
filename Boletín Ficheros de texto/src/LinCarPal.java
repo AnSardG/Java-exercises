@@ -28,6 +28,7 @@ public class LinCarPal {
                     lineas++;
                     caracteres += linea.replaceAll(" +", "").length();
                     palabras += linea.length() - linea.replaceAll(" +", "").length() + 1;
+                    linea = fSalida.readLine();
                 }//Fin Mientras
                 System.out.println("Número de lineas, caracteres y palabras del archivo "+args[0]+":");
                 System.out.println("\tLineas: "+lineas);
