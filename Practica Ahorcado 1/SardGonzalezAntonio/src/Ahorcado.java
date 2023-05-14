@@ -84,10 +84,10 @@ public class Ahorcado {
             do {
                 System.out.print("Introduzca una letra: ");
                 aFacil.compruebaLetra(Ahorcado.pideLetra());
-                res = aFacil.muestraResultado();
                 if(aFacil.getFallos() > 0){
                     aFacil.muestraListaFallos();
-                }//Fin Si                
+                }//Fin Si  
+                res = aFacil.muestraResultado();                
             } while (res == -1 && aFacil.getFallos() < aFacil.FALLOSPERMITIDOS);
         } else {
             System.out.print("Introduzca la palabra secreta: ");

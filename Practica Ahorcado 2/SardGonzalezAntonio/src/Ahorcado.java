@@ -40,7 +40,7 @@ public class Ahorcado {
         BufferedReader fSalida = null;
         String palabra = "";
         Random numAleatorio;
-        int cantPalabras, numPalabra, i;
+        long cantPalabras, numPalabra, i;
         //Algoritmo:
         try {
             if (dificultad == 1) {
@@ -48,9 +48,13 @@ public class Ahorcado {
             } else {
                 fSalida = new BufferedReader(new FileReader(".\\Ficheros\\Dificil.txt"));
             }//Fin Si
-            cantPalabras = Integer.valueOf(fSalida.readLine());
+            cantPalabras = Long.valueOf(fSalida.readLine());
             numAleatorio = new Random();
-            numPalabra = numAleatorio.nextInt(cantPalabras);
+            if(cantPalabras <= Integer.MAX_VALUE){
+                numPalabra = numAleatorio.nextInt((int)cantPalabras);
+            } else {
+                numPalabra = numAleatorio.nextLong() - cantPalabras;
+            }//Fin Si            
             palabra = fSalida.readLine();
             i = 0;
             while (palabra != null && i < numPalabra) {
@@ -82,8 +86,8 @@ public class Ahorcado {
                 fSalida.readLine();
                 palabra = fSalida.readLine();
                 if (palabra != null) {
-                    System.out.println("Se han encontrado menos palabras en el fichero"
-                            + " de las debidas, se utilizará la primera palabra.");
+                    System.out.println("Se han encontrado un número erróneo de "
+                            + "palabras en el fichero, se utilizará la primera palabra.");
                     System.out.println(palabra.replaceAll("[a-zA-Z]", "*"));
                 }//Fin Si                       
             } catch (FileNotFoundException fnfe) {
@@ -134,10 +138,10 @@ public class Ahorcado {
                 do {
                     System.out.print("Introduzca una letra: ");
                     aFacil.compruebaLetra(Ahorcado.pideLetra());
-                    res = aFacil.muestraResultado();
                     if (aFacil.getFallos() > 0) {
                         aFacil.muestraListaFallos();
-                    }//Fin Si                
+                    }//Fin Si    
+                    res = aFacil.muestraResultado(); 
                 } while (res == -1 && aFacil.getFallos() < aFacil.FALLOSPERMITIDOS);
             }//Fin Si
 
@@ -155,7 +159,7 @@ public class Ahorcado {
         }//Fin Si     
         if(palabra == null){
             System.out.println("No se encuentra ninguna palabra en el fichero,"
-                        + " comrpuebe los archivos del directorio Ficheros.");
+                        + " compruebe los archivos del directorio Ficheros.");
         }//Fin Si
     }//Fin Programa
 }
