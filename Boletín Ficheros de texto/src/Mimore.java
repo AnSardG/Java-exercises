@@ -43,15 +43,15 @@ public class Mimore {
                 System.out.println("Archivo no encontrado, compruebe la ruta introducida.");
             } catch (IOException ioe) {
                 System.out.println("Error de E/N.");
-            }finally{
+            } finally {
                 if (fSalida != null) {
-                        try {
-                            fSalida.close();
-                        } catch (IOException ioe) {
-                            System.out.println("Error de E/S al leer el archivo "
-                                    + args[0] + ".");
-                        }//Fin Try                 
-                    }//Fin Si
+                    try {
+                        fSalida.close();
+                    } catch (IOException ioe) {
+                        System.out.println("Error de E/S al leer el archivo "
+                                + args[0] + ".");
+                    }//Fin Try                 
+                }//Fin Si
             }//Fin Try            
         } else {
             System.out.println("Número de argumentos inválido. Debe introducir"
