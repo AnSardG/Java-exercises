@@ -20,14 +20,11 @@ public class Practica3 {
     public static byte sacaDigito(int numero, byte posicion) {
         //Entorno:
         byte digito;
-        int auxNum;
         //Algoritmo:
-        if ((byte) (cifras(numero) - posicion) < 0) {
+        if (cifras(numero) < posicion) {
             digito = -1;
         } else {
-            numero = numero / (int) Math.pow(10, (byte) (cifras(numero) - posicion));
-            auxNum = numero / 10 * 10;
-            digito = (byte) (numero - auxNum);
+            digito = (byte) (numero / (int) Math.pow(10, cifras(numero) - posicion) % 10);
         }//Fin Si
         return digito;
     }//Fin Función
@@ -40,34 +37,41 @@ public class Practica3 {
         numAleatorio = new Random();
         num = numAleatorio.nextInt(1000000) + 1;
         return num;
-    }//Fin Función
+    }//Fin FunciónS
 
     public static void muestraResultado(int numAleatorio, int numIntroducido) {
         //Entorno:
-        byte cifraNum, diferencia;
+        byte cifraNum, diferencia, cifrasNumAleatorio, cifrasNumIntroducido, diferenciaCifras;
         //Algoritmo:
-        if (cifras(numAleatorio) > cifras(numIntroducido)) {
-            for(diferencia = (byte)(cifras(numAleatorio) - cifras(numIntroducido)); diferencia >= 1; diferencia--) {
-                System.out.print("*");
-            }//Fin Mientras
-            numAleatorio = numAleatorio - (int) (numAleatorio
-                    / Math.pow(10, cifras(numIntroducido)))
-                    * (int) Math.pow(10, cifras(numIntroducido));
-        }//Fin Si
-        if (cifras(numIntroducido) > cifras(numAleatorio)) {
-            numIntroducido = numIntroducido - (int) (numIntroducido
-                    / Math.pow(10, cifras(numAleatorio)))
-                    * (int) Math.pow(10, cifras(numAleatorio));
-        }//Fin Si
-        for (cifraNum = 1; cifraNum <= cifras(numIntroducido); cifraNum++) {
-            if (sacaDigito(numAleatorio, cifraNum) == sacaDigito(numIntroducido, cifraNum)) {
-                System.out.print(sacaDigito(numAleatorio, cifraNum));
+        cifrasNumAleatorio = cifras(numAleatorio);
+        cifrasNumIntroducido = cifras(numIntroducido);
+        diferencia = (byte) (cifrasNumAleatorio - cifrasNumIntroducido);
+        while (diferencia >= 1) {
+            System.out.print("*");
+            diferencia--;
+        }//Fin Mientras
+        diferenciaCifras = (byte) (cifrasNumAleatorio - cifrasNumIntroducido);
+        for (cifraNum = 1; cifraNum <= cifrasNumIntroducido; cifraNum++) {
+            if (sacaDigito(numAleatorio, (byte)(cifraNum + diferenciaCifras)) 
+                    == sacaDigito(numIntroducido, cifraNum)) {
+                System.out.print(sacaDigito(numIntroducido, cifraNum));
             } else {
                 System.out.print("*");
             }//Fin Si
         }//Fin Para
         System.out.println();
     }//Fin Procedimiento
+
+    public static int pideNumero() {
+        //Entorno:
+        int numero;
+        //Algoritmo:
+        do {
+            System.out.print("Introduzca un número positivo (no debe tener mas cifras que el aleatorio): ");
+            numero = Leer.datoInt();
+        } while (numero < 0);
+        return numero;
+    }//Fin Función
 
     public static void main(String[] args) {
         //Entorno:
@@ -81,16 +85,14 @@ public class Practica3 {
             System.out.print("*");
         }//Fin Para
         System.out.println(" (" + cifras(numAleatorio) + " dígitos)");
-        System.out.print("Introduzca un número (" + oportunidad
-                    + "ª oportunidad): ");
-            numIntroducido = Leer.datoInt();
-        while(numAleatorio != numIntroducido && oportunidad < 10) {            
+        do {
+            System.out.println(" (" + oportunidad + "ª oportunidad)");
+            do {
+                numIntroducido = pideNumero();
+            } while (cifras(numIntroducido) > cifras(numAleatorio));
             muestraResultado(numAleatorio, numIntroducido);
             oportunidad++;
-            System.out.print("Introduzca un número (" + oportunidad
-                    + "ª oportunidad): ");
-            numIntroducido = Leer.datoInt();
-        }//Fin Mientras
+        } while (numAleatorio != numIntroducido && oportunidad < 10);
         if (numAleatorio != numIntroducido) {
             System.out.println("Ha perdido, el número correcto es el "
                     + numAleatorio + ".");
