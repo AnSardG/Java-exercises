@@ -1,4 +1,7 @@
+package JuegoAhorcado;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -12,8 +15,9 @@ public class AhorcadoFacil extends AhorcadoDificil {
     private LinkedList<Character> listaFallos;
     //Constructores:
 
-    public AhorcadoFacil(String palabraSecreta) {
-        super(palabraSecreta);
+    public AhorcadoFacil() throws FileNotFoundException,
+            IllegalArgumentException, NumberFormatException, IOException {
+        super();
         listaFallos = new LinkedList();
     }
     //Métodos:

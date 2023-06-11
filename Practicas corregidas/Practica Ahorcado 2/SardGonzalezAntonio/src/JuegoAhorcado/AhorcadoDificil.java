@@ -1,3 +1,10 @@
+package JuegoAhorcado;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Random;
 
 /**
  *
@@ -12,21 +19,59 @@ public class AhorcadoDificil {
     protected String[] dibujoAhorcado;
     //Constructores:
 
-    public AhorcadoDificil(String palabraSecreta) {
+    public AhorcadoDificil() throws FileNotFoundException,
+            IllegalArgumentException, NumberFormatException, IOException {
         //Entorno:
         byte i;
         //Algoritmo:
-        this.palabraSecreta = palabraSecreta;
-        dibujoAhorcado = new String[10];
-        for (i = (byte) palabraSecreta.length(); i > 0; i--) {
-            palabraRespuesta += "*";
-        }//Fin Para
-        for (i = 0; i < dibujoAhorcado.length; i++) {
-            dibujoAhorcado[i] = " ";
-        }//Fin Para
+        this.palabraSecreta = obtenPalabraSecreta();
+        if (palabraSecreta != null) {
+            dibujoAhorcado = new String[10];
+            for (i = (byte) palabraSecreta.length(); i > 0; i--) {
+                palabraRespuesta += "*";
+            }//Fin Para
+            for (i = 0; i < dibujoAhorcado.length; i++) {
+                dibujoAhorcado[i] = " ";
+            }//Fin Para
+        }//Fin Si
     }
 
     //Métodos:
+    public String obtenPalabraSecreta() throws FileNotFoundException,
+            IllegalArgumentException, NumberFormatException, IOException {
+        //Entorno:
+        BufferedReader fSalida;
+        String palabra = "";
+        Random numAleatorio;
+        long cantPalabras, numPalabra, i;
+        //Algoritmo:       
+        if (this instanceof AhorcadoFacil) {
+            fSalida = new BufferedReader(new FileReader(".\\Ficheros\\Facil.txt"));
+        } else {
+            fSalida = new BufferedReader(new FileReader(".\\Ficheros\\Dificil.txt"));
+        }//Fin Si
+        cantPalabras = Long.valueOf(fSalida.readLine());
+        numAleatorio = new Random();
+        if (cantPalabras <= Integer.MAX_VALUE) {
+            numPalabra = numAleatorio.nextInt((int) cantPalabras);
+        } else {
+            numPalabra = numAleatorio.nextLong() - cantPalabras;
+        }//Fin Si            
+        palabra = fSalida.readLine();
+        i = 0;
+        while (palabra != null && i < numPalabra) {
+            palabra = fSalida.readLine();
+            i++;
+        }//Fin Mientras   
+        fSalida.close();        
+        if (palabra != null) {
+            System.out.println(palabra.replaceAll("[a-zA-Z]", "*"));
+        } else {
+            throw new IllegalArgumentException();
+        }//Fin Si     
+        return palabra;
+    }
+
     /*
      * Comprueba si la letra es correcta y se modifica el dibujo; a su vez, si la
      * letra es incorrecta se incrementarán los fallos.
@@ -80,11 +125,11 @@ public class AhorcadoDificil {
         }//Fin Si
         return res;
     }
-   
+
     public byte getFallos() {
         return fallos;
     }
-    
+
     /*
      * Cambia la palabra que se muestra por pantalla añadiendo la letra acertada y     
      * controlando si está en la última posición o a mitad de la palabra.     

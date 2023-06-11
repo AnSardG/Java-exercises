@@ -81,30 +81,25 @@ public class AB7Ej2 {
                     break;
                 case 6:
                 case 7:
-                    if (opcion == 6) {
-                        if (tabla.estaLlena()) {
-                            System.out.println("Imposible introducir datos, tabla llena");
-                        } else {
-                            do {
-                                System.out.print("Introduzca la posición [1-10]: ");
-                                posicion = AB7Ej2.leeByte();
-                            } while (posicion < 1 || posicion > 10);
-                            posicion--;
-                            do {
-                                System.out.print("Introduzca el elemento (número entero mayor que 0): ");
-                                elemento = Leer.datoInt();
-                            } while (elemento < 1);
-                            tabla.insertar(posicion, elemento);
-                        }//Fin Si
-                    } else if (tabla.estaVacia()) {
-                        System.out.println("Imposible borrar dato, tabla vacía");
+                    if (opcion == 6 && tabla.estaLlena()) {
+                        System.out.println("Imposible introducir datos, tabla llena");
+                    } else if (opcion == 7 && tabla.estaVacia()) {
+                        System.out.println("Imposible borrar dato, tabla vacía");                        
                     } else {
                         do {
                             System.out.print("Introduzca la posición [1-10]: ");
                             posicion = AB7Ej2.leeByte();
                         } while (posicion < 1 || posicion > 10);
                         posicion--;
-                        tabla.eliminar(posicion);
+                        if(opcion == 6){
+                           do {
+                                System.out.print("Introduzca el elemento (número entero mayor que 0): ");
+                                elemento = Leer.datoInt();
+                            } while (elemento < 1);
+                            tabla.insertar(posicion, elemento); 
+                        } else {
+                            tabla.eliminar(posicion);
+                        }//Fin Si
                     }//Fin Si
                     break;
             }//Fin Según Sea
