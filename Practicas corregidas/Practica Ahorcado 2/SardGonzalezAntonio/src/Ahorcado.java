@@ -85,11 +85,11 @@ public class Ahorcado {
         } catch (FileNotFoundException fnfe) {
             System.out.println("No se ha encontrado el archivo correspondiente en "
                     + "el directorio Ficheros: cree el archivo Facil.txt o Dificil.txt");
-        }catch (NumberFormatException nfe) {
+        } catch (NumberFormatException nfe) {
             System.out.println("No se ha especificado en el fichero el número de "
                     + "palabras que contiene, asegurese de haber escrito en la "
                     + "primera línea la cantidad exacta de palabras que contenga.");
-        } catch (IllegalArgumentException iae){
+        } catch (IllegalArgumentException iae) {
             System.out.println("El fichero está mal formado, se han encontrado "
                     + "menos palabras de las debidas, compruebe su formato.");
         } catch (IOException ioe) {

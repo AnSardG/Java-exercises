@@ -12,13 +12,12 @@ import java.util.Random;
  */
 public class AhorcadoDificil {
     //Atributos:
-
     public static final byte FALLOSPERMITIDOS = 10;
     protected String palabraSecreta, palabraRespuesta = "";
     protected byte fallos;
     protected String[] dibujoAhorcado;
+    
     //Constructores:
-
     public AhorcadoDificil() throws FileNotFoundException,
             IllegalArgumentException, NumberFormatException, IOException {
         //Entorno:
